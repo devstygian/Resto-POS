@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== MAIN CONTENT ===== */
+.content {
+    margin-left: 260px;
+    padding: 40px;
+    width: 100%;
+}
+
+/* ===== MENU GRID ===== */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    align-items: stretch;
+}
+
+.food-card {
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: 0.3s;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 220px;
+}
+
+.food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.food-card h3 {
+    font-size: 18px;
+    color: #111827;
+    margin-bottom: 10px;
+    min-height: 40px;
+    margin-top: 12px;
+    border: 1px solid #f2fa85;
+    border-radius: 20px;
+    padding: 10px 10px;
+    background-color: #ccf7af;
+}
+
+/* SIZE SELECT */
+.size-select {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.size-select label {
+    background: #f6f4f3;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: 0.2s;
+}
+
+.size-select label:hover {
+    background: #e0e7ff;
+    border-color: #95eb25;
+}
+.size-select input[type="radio"] {
+    accent-color: #1b5e20;
+    /* Green color for selected radio */
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* PRICE + ADD TO CART INLINE */
+.food-card .price,
+.food-card button {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* price style */
+.price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #d4af37;
+    margin-right: 10px;
+}
+
+/* ===== ADD TO CART BUTTON ===== */
+
+.food-card {
+    position: relative;
+}
+.food-card button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #2e7d32, #2e7d32);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.food-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+/* ===== CART BUTTON ===== */
+.cart-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 20px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #2e7d32, #2e7d32);
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s;
+    z-index: 50;
+    border-color: #22c55e;
+}
+
+.cart-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(135, 243, 85, 0.3);
+}
+
+/* ===== CART SLIDE PANEL ===== */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 380px;
+    max-width: 90%;
+    height: 100%;
+    background: #fff;
+    z-index: 1000;
+    padding: 25px 20px 40px 20px;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.cart-panel.open {
+    right: 0;
+}
+
+/* Cart heading */
+.cart-panel h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* Customer inputs */
+.cart-panel label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.cart-panel input,
+.cart-panel textarea,
+.cart-panel select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95em;
+    transition: border-color 0.2s;
+}
+
+.cart-panel input:focus,
+.cart-panel textarea:focus,
+.cart-panel select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Cart items */
+.cart-items {
+    margin-top: 25px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 20px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: #f3f4f6;
+    transition: background 0.2s;
+}
+
+.cart-item:hover {
+    background: #e5e7eb;
+}
+
+.cart-item div {
+    font-size: 0.95em;
+    line-height: 1.4em;
+}
+
+.cart-item button.delete-btn {
+    background: transparent;
+    border: none;
+    color: #e74c3c;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.cart-item button.delete-btn:hover {
+    color: #c0392b;
+}
+
+/* Discount section */
+.discount-section {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.discount-section label {
+    font-weight: 500;
+}
+
+.discount-section input {
+    width: 80px;
+}
+
+/* Totals */
+.cart-totals {
+    margin-top: 25px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 20px;
+    font-size: 1em;
+}
+
+.cart-totals p {
+    margin: 8px 0;
+}
+
+.cart-totals strong {
+    font-size: 1.15em;
+    color: #111827;
+}
+
+/* Buttons */
+.checkout-btn,
+.back-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.checkout-btn {
+    background-color: #4ade80;
+    color: #fff;
+}
+
+.checkout-btn:hover {
+    background-color: #22c55e;
+}
+
+.back-btn {
+    background-color: #e5e7eb;
+    color: #111827;
+}
+
+.back-btn:hover {
+    background-color: #d1d5db;
+}
+
+/* Scrollbar for cart items */
+.cart-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 3px;
+}
+

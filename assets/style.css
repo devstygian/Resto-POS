@@ -1,0 +1,193 @@
+/* ===== GLOBAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #faf8e2;
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ===== MAIN CONTENT ===== */
+.content {
+    margin-left: 260px;
+    padding: 40px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* ===== TOPBAR ===== */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.topbar h1 {
+    font-size: 28px;
+}
+
+/* Sidebar toggle button */
+#sidebar-toggle {
+    display: none;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+/* ===== CARDS ===== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.card h2 {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+table th,
+table td {
+    padding: 16px 20px;
+    text-align: left;
+}
+
+table th {
+    background: #f9fafb;
+    font-weight: 600;
+}
+
+table tr:not(:last-child) td {
+    border-bottom: 1px solid #eee;
+}
+
+/* ===== BUTTONS ===== */
+button {
+    padding: 10px 18px;
+    background: #2563eb;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1e40af;
+}
+
+/* ===== FORM INPUTS ===== */
+input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* ===== LOGIN PAGE ===== */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-card {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 16px;
+    width: 380px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .content {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 220px;
+        padding: 25px 15px;
+    }
+
+    .content {
+        margin-left: 220px;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* Sidebar hidden by default */
+    .sidebar {
+        left: -260px;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    /* Overlay effect */
+    body::before {
+        content: '';
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 150;
+        transition: 0.3s;
+    }
+
+    .sidebar.show~body::before {
+        display: block;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    #sidebar-toggle {
+        display: inline-block;
+    }
+}

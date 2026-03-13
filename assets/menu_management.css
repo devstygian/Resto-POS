@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 260px;
+    background: #111827;
+    color: white;
+    padding: 30px 20px;
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    margin-bottom: 40px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.sidebar a {
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    color: #d1d5db;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.sidebar a:hover {
+
+    border-bottom: 1px solid #ccf7af9f;
+    color: rgb(245, 239, 239);
+}
+/* ===== MAIN CONTENT ===== */
+.content {
+    margin-left: 260px;
+    padding: 40px;
+    width: 100%;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.add-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.add-box input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.add-box button {
+    padding: 10px 15px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+/* ===== MENU TABLE ===== */    
+
+.orders-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+}
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+}
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+table th {
+    background: #ccf7af9f;
+    color: #fff;
+    color: #121213;
+    padding: 12px;
+}
+
+table td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+table input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.update {
+    background: #2e7d32;
+    border: none;
+    padding: 8px 12px;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.update:hover {
+    background: #2e7d32a8;
+}
+.delete {
+    background: #d4af37;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.delete:hover {
+    background: rgba(198, 201, 17, 0.822);
+}

@@ -1,0 +1,100 @@
+/* ===== SIDEBAR STYLES ===== */
+.sidebar {
+    width: 260px;
+    /*background: #634c14;
+    color: #f9fafb;
+    background: #cbd5c0;*/
+    background: #cbd5c0;
+    color: #161616;
+    padding: 30px 20px;
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+}
+
+.sidebar h2 {
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar a {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    /*color: #d1d5db;*/
+    color: #161616;
+    text-decoration: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.sidebar a i {
+    min-width: 20px;
+    font-size: 18px;
+}
+
+.sidebar a:hover {
+    background: #ccf7af9f;
+    color: #161616;
+}
+
+/* Active link */
+.sidebar a.active {
+    background: #2e7d32;
+    color: #161616;
+}
+
+/* Left indicator bar */
+.sidebar a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #2e7d32;
+    border-radius: 0 4px 4px 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.sidebar a:hover::before,
+.sidebar a.active::before {
+    opacity: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 220px;
+        padding: 25px 15px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* Sidebar hidden by default */
+    .sidebar {
+        left: -260px;
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    #sidebar-toggle {
+        display: inline-block;
+    }
+}

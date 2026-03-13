@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== MAIN CONTENT ===== */
+.content {
+    margin-left: 260px;
+    padding: 40px;
+    width: 100%;
+}
+/* ===== Orders Page UI ===== */
+.content h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+/* ===== Orders Table ===== */
+.orders-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.orders-table th,
+.orders-table td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.orders-table th {
+    background: #ccf7af9f;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    color: #121213;
+}
+
+.orders-table tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+.orders-table tr:hover {
+    background: #e0e7ff;
+}
+
+/* Responsive table labels */
+@media(max-width:768px) {
+
+    .orders-table,
+    .orders-table thead,
+    .orders-table tbody,
+    .orders-table th,
+    .orders-table td,
+    .orders-table tr {
+        display: block;
+    }
+
+    .orders-table thead tr {
+        display: none;
+    }
+
+    .orders-table td {
+        position: relative;
+        padding-left: 50%;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .orders-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        top: 12px;
+        font-weight: 600;
+        color: #2563eb;
+    }
+}
+
+/* Buttons */
+.action-btn {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.view-btn {
+    background: #2e7d32;
+    color: #fff;
+}
+
+.view-btn:hover {
+    background: #2e7d32a8;
+}
+
+.delete-btn {
+    background: #d4af37;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background: rgba(198, 201, 17, 0.822);
+}
+
+/* Status dropdown */
+.status-select {
+    padding: 5px 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* ===== Modal ===== */
+#itemsModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#itemsModal .modal-content {
+    background: white;
+    padding: 20px 25px;
+    border-radius: 16px;
+    width: 400px;
+    max-width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+#itemsModal h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+#modal-items ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+#modal-special-instructions {
+    background: #f3f4f6;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 8px;
+    min-height: 40px;
+    word-break: break-word;
+}
+
+#itemsModal button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#itemsModal button:hover {
+    background: #1e40af;
+}
