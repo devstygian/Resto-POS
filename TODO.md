@@ -36,6 +36,8 @@
 
 ## DATABASE TASKS
 
+- [ ] ADD database_structure.sql
+
 ### MENU TABLE
 - [ ] Connect the Category table to Menu Management
 - [ ] Allow uploading/assigning a category when adding a menu item
