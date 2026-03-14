@@ -19,6 +19,9 @@
 ### DASHBOARD
 - [ ] Fetch correct data from the database to display on the dashboard
 
+### SIDEBAR
+- [ ] show role in sidebar(Staff/Onwer
+
 ### ORDER SYSTEM
 - [ ] Add order status filter
 - [ ] Add order history
