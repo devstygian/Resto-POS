@@ -19,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['users'] = $user['username'];
             $_SESSION['role'] = $user['role'];
 
-            // ✅ Use same relative path as old code
             header("Location: ../index.php");
             exit();
         } else {

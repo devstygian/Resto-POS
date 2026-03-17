@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <!-- sidebar.php -->
     <div class="sidebar">
         <h2><i class="fas fa-store"></i> Nadine' Owner</h2>
 

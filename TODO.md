@@ -38,12 +38,12 @@
 - [ ] Add order receipt print
 
 ### LOGIN
-- [ ] Improve authentication security for login
-- [ ] Add roles for the user (admin and staff)
+- [x] Improve authentication security for login
+- [x] Add roles for the user (admin and staff)
 
 ### SECURITY
-- [ ] Hash passwords using `password_hash()`
-- [ ] Prevent SQL injection using prepared statements
+- [x] Hash passwords using `password_hash()`
+- [x] Prevent SQL injection using prepared statements
 
 ## BUG FIXES
 - [ ] Fix order status update bug

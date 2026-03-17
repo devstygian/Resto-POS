@@ -81,9 +81,7 @@ $result = $conn->query("SELECT id, username, fullname, role FROM users");
         </table>
     </div>
 
-    <!-- ========================= -->
-    <!-- ✏️ EDIT MODAL -->
-    <!-- ========================= -->
+    <!-- EDIT MODAL -->
     <div id="editModal" class="modal">
         <div class="modal-content">
             <h2>Edit Staff</h2>
@@ -114,9 +112,8 @@ $result = $conn->query("SELECT id, username, fullname, role FROM users");
         </div>
     </div>
 
-    <!-- ========================= -->
-    <!-- ⚙️ SCRIPT -->
-    <!-- ========================= -->
+
+    <!-- SCRIPT -->
     <script>
         function openEditModal(id, username, fullname, role) {
             const modal = document.getElementById("editModal");
