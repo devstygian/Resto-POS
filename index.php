@@ -51,7 +51,7 @@ $todaySales = $conn->query("
         <div class="topbar">
             <button id="sidebar-toggle"><i class="fas fa-bars"></i></button>
             <h1>Dashboard</h1>
-            <p>Welcome, <?= $_SESSION['admins'] ?></p>
+            <p>Welcome, <?= $_SESSION['users'] ?></p>
         </div>
 
         <!-- STAT CARDS -->

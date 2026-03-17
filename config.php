@@ -12,12 +12,8 @@ $base_url = "http://localhost/Nadine-system/";
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-// ===============================
-// 🔐 Protect Pages Function
-// ===============================
 function checkLogin() {
-    if (!isset($_SESSION['admins']) || empty($_SESSION['admins'])) {
+    if (!isset($_SESSION['users']) || empty($_SESSION['users'])) {
         header("Location: ../auth/login.php");
         exit();
     }

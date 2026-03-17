@@ -5,9 +5,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $result = $conn->query("SELECT * FROM admins WHERE username='$username' AND password='$password'");
+    $result = $conn->query("SELECT * FROM users WHERE username='$username' AND password='$password'");
     if ($result->num_rows > 0) {
-        $_SESSION['admins'] = $username;
+        $_SESSION['users'] = $username;
         header("Location: ../index.php");
         exit();
     } else {
