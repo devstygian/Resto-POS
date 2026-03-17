@@ -1,0 +1,188 @@
+/* ========================= */
+/* 🌍 GLOBAL */
+/* ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+}
+
+/* ========================= */
+/* 📦 CONTENT */
+/* ========================= */
+.content {
+    margin-left: 260px;
+    padding: 40px;
+    width: 80%;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/* ========================= */
+/* ➕ ADD BOX */
+/* ========================= */
+.add-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.add-box h3 {
+    margin-bottom: 15px;
+}
+
+.add-box form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.add-box input,
+.add-box select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    flex: 1;
+    min-width: 150px;
+    font-size: 14px;
+    /* uniform */
+}
+
+.add-box button {
+    background: #1b5e20;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* ========================= */
+/* 📊 TABLE */
+/* ========================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* UNIFORM TEXT SIZE */
+th,
+td {
+    font-size: 14px;
+    padding: 12px;
+    text-align: left;
+}
+
+/* HEADER */
+th {
+    background: #ccf7af9f;
+    font-weight: 600;
+}
+
+/* ROW */
+td {
+    border-bottom: 1px solid #ddd;
+}
+
+/* BUTTONS */
+button {
+    background: #1b5e20;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+    font-size: 13px;
+}
+
+/* ========================= */
+/* 📱 RESPONSIVE */
+/* ========================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .content {
+        margin-left: 200px;
+        padding: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    /* FORM STACK */
+    .add-box form {
+        flex-direction: column;
+    }
+
+    .add-box input,
+    .add-box select,
+    .add-box button {
+        width: 100%;
+    }
+
+    /* TABLE → CARD STYLE */
+    table {
+        border: 0;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        display: block;
+        margin-bottom: 15px;
+        background: #fff;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 10px;
+        border: none;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #555;
+    }
+
+    td[data-label="Action"] {
+        justify-content: flex-start;
+        gap: 10px;
+    }
+}

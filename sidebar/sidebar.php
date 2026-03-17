@@ -34,8 +34,8 @@
             <i class="fas fa-edit"></i> Menu Management
         </a>
 
-        <a href="<?= $base_url ?>staff_management.php">
-            <i class="fas fa-user-shield"></i> Staff Management
+        <a href="<?= $base_url ?>acc_management/staff.php">
+            <i class="fas fa-user-shield"></i> Accounts
         </a>
 
         <a href="<?= $base_url ?>auth/logout.php">
