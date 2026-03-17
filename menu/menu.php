@@ -8,6 +8,38 @@ checkLogin(); ?>
     <title>Orders</title>
     <link rel="stylesheet" href="../assets/menu.css">
     <link rel="stylesheet" href="../icon/css/all.min.css">
+    <style>
+        /* Search bar styling */
+        .menu-search {
+            width: 50%;
+            border-radius: 5px;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-search input {
+            width: 50%;
+            max-width: 500px;
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            background-color: aliceblue;
+            border-radius: 500px;
+        }
+
+        .food-card {
+            display: inline-block;
+            /* keep grid display */
+            margin: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,62 +49,19 @@ checkLogin(); ?>
 
         <h1>Food Menu</h1>
 
-        <div class="menu-grid">
-
-            <?php
-            $result = $conn->query("SELECT * FROM menu");
-            while ($row = $result->fetch_assoc()) {
-            ?>
-
-                <div class="food-card">
-
-                    <h3><?= $row['menu'] ?></h3>
-
-                    <!-- SIZE SELECT -->
-                    <div class="size-select">
-
-                        <label>
-                            <input type="radio"
-                                name="size<?= $row['menuID'] ?>"
-                                value="medium"
-                                checked
-                                onclick="updatePrice(<?= $row['menuID'] ?>, <?= $row['price_medium'] ?>)">
-                            Medium
-                        </label>
-
-                        <label>
-                            <input type="radio"
-                                name="size<?= $row['menuID'] ?>"
-                                value="large"
-                                onclick="updatePrice(<?= $row['menuID'] ?>, <?= $row['price_large'] ?>)">
-                            Large
-                        </label>
-
-                    </div>
-
-                    <!-- PRICE + ADD TO CART INLINE -->
-                    <div class="card-bottom">
-                        <p class="price" id="price<?= $row['menuID'] ?>">
-                            ₱<?= $row['price_medium'] ?>
-                        </p>
-                        <button class="add-btn"
-                            onclick="addSelectedToCart(
-        <?= $row['menuID'] ?>,
-        '<?= $row['menu'] ?>',
-        <?= $row['price_medium'] ?>,
-        <?= $row['price_large'] ?>
-    )">
-                            <i class="fa-solid fa-cart-arrow-down"></i> Add
-                        </button>
-                    </div>
-
-                </div>
-
-            <?php } ?>
-
+        <!-- Search Bar -->
+        <div class="menu-search">
+            <input type="text" id="menuSearch" placeholder="Search menu..." onkeyup="searchMenu()">
         </div>
 
-        <button class="cart-btn" onclick="openCart()"><i class="fa-solid fa-cart-plus"></i> Add(<span id="cart-count">0</span>)</button>
+        <!-- Menu Container -->
+        <div class="menu-grid" id="menuContainer">
+            <!-- Menu items will be loaded here via AJAX -->
+        </div>
+
+        <button class="cart-btn" onclick="openCart()">
+            <i class="fa-solid fa-cart-plus"></i> Add(<span id="cart-count">0</span>)
+        </button>
 
     </div>
 
@@ -98,7 +87,7 @@ checkLogin(); ?>
         <label for="deliveryType">Delivery Type:</label>
         <select id="deliveryType">
             <option value="Pickup">Pick Up</option>
-            <option value="Door-to-Door">Door-to-Door Delivery</option>
+            <option value="Delivery">Delivery</option>
         </select>
 
         <label for="deliveryDateTime">Delivery Date & Time:</label>
@@ -118,6 +107,25 @@ checkLogin(); ?>
     </div>
 
     <script src="../assets/cart.js?v=2"></script>
+
+    <script>
+        // AJAX search function
+        function searchMenu() {
+            const query = document.getElementById('menuSearch').value;
+
+            fetch(`menu_search.php?q=${encodeURIComponent(query)}`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('menuContainer').innerHTML = data;
+                });
+        }
+
+        // Load all menu items on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            searchMenu();
+        });
+    </script>
+
 </body>
 
 </html>
