@@ -22,25 +22,44 @@ $orders = $conn->query("
     <link rel="stylesheet" href="../icon/css/all.min.css">
 
     <style>
-        /* Search bar styling */
-        .order-search {
-            border-radius: 5px;
-            padding: 10px 20px;
+        /* Header layout */
+        .header {
             position: sticky;
             top: 0;
             z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
+        /* Left side (text) */
+        .header-text h1 {
+            margin: 0;
+        }
+
+        .header-text p {
+            margin: 5px 0 0;
+        }
+
+        /* Search bar container */
+        .order-search {
+            width: 300px;
+            /* adjust as needed */
+        }
+
+        /* Input styling */
         .order-search input {
-            width: 50%;
-            max-width: 500px;
-            margin-top: 20px;
             width: 100%;
             padding: 10px;
             font-size: 16px;
-            margin-bottom: 15px;
             background-color: aliceblue;
             border-radius: 500px;
+            border: 1px solid #131312;
         }
     </style>
 </head>
@@ -50,15 +69,19 @@ $orders = $conn->query("
     <?php include '../sidebar/sidebar.php'; ?>
 
     <div class="content">
-        <h1>Orders management</h1>
-        <p style="margin-bottom: 20px;">Manage all orders in the system.</p>
 
-        <!-- SEARCH BAR -->
-        <div class="order-search" style="margin-bottom: 15px; text-align: center;">
-            <input type="text" id="orderSearch"
-                placeholder="Search customer or address..."
-                onkeyup="searchOrders()"
-                style="width: 50%; padding: 8px; font-size: 16px;">
+        <div class="header">
+            <div class="header-text">
+                <h1>Orders management</h1>
+                <p>Manage all orders in the system.</p>
+            </div>
+
+            <!-- SEARCH BAR -->
+            <div class="order-search">
+                <input type="text" id="orderSearch"
+                    placeholder="Search customer or address..."
+                    onkeyup="searchOrders()">
+            </div>
         </div>
 
         <div class="orders-container">
@@ -120,7 +143,7 @@ $orders = $conn->query("
         </div>
 
         <script src="../assets/orders.js"></script>
-      
+
         <script>
             function searchOrders() {
                 const query = document.getElementById("orderSearch").value;
