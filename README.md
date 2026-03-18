@@ -76,6 +76,17 @@ C:\xampp\htdocs\Nadine-system
 http://localhost/Nadine-system
 ```
 ---
+### Commit Format
+```bash
+<type>: <short description>
+
+feat: add search functionality to orders page
+fix: correct login password hashing issue
+style: redesign sidebar logo
+refactor: clean up database connection logic
+chore: remove unnecessary comments
+
+```
 ## Author
 **Stygian**  
 Contact: [hackstygian@gmail.com](mailto:hackstygian@gmail.com)
