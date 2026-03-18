@@ -1,5 +1,5 @@
 <?php
-include 'config/config.php';
+include 'src/config/config.php';
 checkLogin();
 
 /* TOTAL SALES */
@@ -42,7 +42,7 @@ $todaySales = $conn->query("
 
 <body>
 
-    <?php include 'sidebar/sidebar.php'; ?>
+    <?php include 'src/include/sidebar.php'; ?>
 
     <div class="content">
         <!-- TOPBAR -->
