@@ -58,7 +58,7 @@ if (isset($_GET['ajax'])) {
 
 <head>
     <title>Order Details</title>
-    <link rel="stylesheet" href="../assets/menu.css">
+    <link rel="stylesheet" href="../assets/css/menu.css">
 </head>
 
 <body>

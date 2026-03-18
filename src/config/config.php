@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 function checkLogin() {
     if (!isset($_SESSION['users']) || empty($_SESSION['users'])) {
-        header("Location: ../auth/login.php");
+        header("Location: ../../../auth/login.php");
         exit();
     }
 }

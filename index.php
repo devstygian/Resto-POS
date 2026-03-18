@@ -34,9 +34,9 @@ $todaySales = $conn->query("
 
 <head>
     <title>Dashboard</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/sidebar.css">
-    <link rel="stylesheet" href="icon/css/all.min.css">
+    <link rel="stylesheet" href="<?= $base_url ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?= $base_url ?>assets/css/sidebar.css">
+    <link rel="stylesheet" href="<?= $base_url ?>assets/icon/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 

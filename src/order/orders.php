@@ -141,7 +141,7 @@ $orders = $conn->query("
             </div>
         </div>
 
-        <script src="../assets/js/orders.js"></script>
+        <script src="../../assets/js/orders.js"></script>
 
         <script>
             function searchOrders() {

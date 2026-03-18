@@ -1,5 +1,5 @@
 <?php
-include '../config.php';
+include '../src/config/config.php';
 checkLogin();
 
 // Return monthly sales for Chart.js

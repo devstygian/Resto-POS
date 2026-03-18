@@ -1,15 +1,18 @@
 # TODO LIST
 
 ---
-### NEW PATCH (STAFF)
+# NEW PATCH (STAFF)
 
 ### Staff Display (Do this after the search bar and categories)
 - [ ] Create a order list that show all orders 
 - [ ] Add a dashboard that show the best seller
 
+### STAFF
+- [ ] Show details of orders
+- [ ] Create a monitong system for the staff on kitchen
 ---
 
-## UI / UX IMPROVEMENTS (Owner)
+# UI / UX IMPROVEMENTS (Owner)
 
 ### PAYMENT METHOD 
 - [ ] Add G-cash
@@ -51,15 +54,15 @@
 - [ ] Fix sidebar CSS loading issue
 
 ---
+# DATABASE FEATURE
 
-# STAFF
-- [ ] Show details of orders
-- [ ] Create a monitong system for the staff on kitchen
- 
-
-## DATABASE TASKS
+### DATABASE TASKS
 - [X] ADD database_structure.sql
 - [X] Add roles
+
+### UPGRADE
+- [ ] learn how to use Docker
+- [ ] Use Docker setup for easier local development
 
 ### MENU TABLE
 - [ ] Connect the Category table to Menu Management

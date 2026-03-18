@@ -28,6 +28,12 @@ if ($result->num_rows > 0) {
                 </label>
             </div>
 
+            <!-- Quantity selector     
+            <div class="quantity-select">
+                <label>Quantity:</label>
+                <input type="number" id="qty<?= $row['menuID'] ?>" min="1" value="1" style="width: 60px; margin-left: 10px; margin-bottom: 10px;">
+            </div>-->
+
             <div class="card-bottom">
                 <p class="price" id="price<?= $row['menuID'] ?>">₱<?= $row['price_medium'] ?></p>
                 <button class="add-btn"
