@@ -16,7 +16,7 @@
 
 ### MENU & ORDER
 - [ ] Create categories for the menu and order list
-- [ ] Add a search bar for the menu and order list
+- [X] Add a search bar for the menu and order list
 - [ ] Improve the menu UI
 - [ ] Add food images to the menu
 
@@ -33,8 +33,8 @@
 - [ ] show role in sidebar(Staff/Owner)
 
 ### ORDER SYSTEM
-- [ ] Add order status filter
-- [ ] Add order history
+- [X] Add order status filter
+- [X] Add order history
 - [ ] Add order receipt print
 
 ### LOGIN
@@ -45,23 +45,24 @@
 - [x] Hash passwords using `password_hash()`
 - [x] Prevent SQL injection using prepared statements
 
-## BUG FIXES
-- [ ] Fix order status update bug
+## BUG NEEDED TO FIX
+- [ ] Fix order status update bug on dashboard
 - [ ] Fix sidebar CSS loading issue
 
 ---
 
 # STAFF
 - [ ] Show details of orders
-
+- [ ] Create a monitong system for the staff on kitchen
+ 
 
 ## DATABASE TASKS
 - [ ] ADD database_structure.sql
+- [X] Add roles
 
 ### MENU TABLE
 - [ ] Connect the Category table to Menu Management
 - [ ] Allow uploading/assigning a category when adding a menu item
-- [ ] Add roles
 
 ### OPTIONAL FEATURE
 - [ ] Add Lenis library for smooth scroll

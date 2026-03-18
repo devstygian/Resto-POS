@@ -38,7 +38,12 @@ If you want to contribute:
 
 1. Create a new branch:
 ```bash
-git checkout -b feature-branch
+git checkout -b (branch name/yourname)
+```
+or Switch to Feature branch 
+> Don't work on main branch
+```bash
+git switch feature
 ```
 2. Make your changes and commit:
 ```bash
