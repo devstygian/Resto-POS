@@ -25,6 +25,7 @@
 
 ### DASHBOARD
 - [ ] Fetch correct data from the database to display on the dashboard
+- [ ] ADD refresh function to fetch the updated data
 
 ### STAFF  MANAGEMENT
 - [x] Add a register form for creating a new account

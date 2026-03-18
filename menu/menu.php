@@ -85,7 +85,7 @@ checkLogin(); ?>
         <input type="text" id="customerName" placeholder="Enter customer full name">
 
         <label for="customerPhone">Phone Number:</label>
-        <input type="text" id="customerPhone" placeholder="+63xxxxxxxxxx" value="+63">
+        <input type="text" id="customerPhone" placeholder="+63xxxxxxxxxx" value="" maxlength="11" >
 
         <label for="customerAddress">Address:</label>
         <input type="text" id="customerAddress" placeholder="Enter address">
