@@ -1,6 +1,6 @@
 ![PHP](https://img.shields.io/badge/PHP-7.4-blue) ![MySQL](https://img.shields.io/badge/MySQL-5.7-green) ![License](https://img.shields.io/badge/License-Educational-orange)
 
-# Nadine System
+# Nadine POS System
 
 **Capstone Project** – A restaurant order and menu management system built using **PHP**, **MySQL**, and **XAMPP**.  
 This system allows restaurant staff to manage menus, orders, dashboards, and user authentication efficiently.
