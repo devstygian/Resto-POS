@@ -1,6 +1,7 @@
 <?php
 include '../config/config.php';
 checkLogin();
+checkRole(['admin', 'staff']);
 
 // Use a single connection
 $conn = new mysqli("localhost", "root", "", "ordering_system");
