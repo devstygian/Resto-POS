@@ -1,6 +1,7 @@
 <?php include '../config/config.php';
-checkLogin(); ?>
-
+checkLogin();
+checkRole(['admin']);
+?>
 <!DOCTYPE html>
 <html>
 
