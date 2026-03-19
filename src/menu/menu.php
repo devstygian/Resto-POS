@@ -10,43 +10,50 @@ checkLogin(); ?>
     <link rel="stylesheet" href="<?= $base_url ?>assets/css/sidebar.css">
     <link rel="stylesheet" href="<?= $base_url ?>assets/icon/css/all.min.css">
     <style>
-        /* Header layout */
         .header {
             position: sticky;
             top: 0;
             z-index: 1000;
 
             backdrop-filter: blur(8px);
-
             padding: 10px 20px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Left side (text) */
-        .header-text h1 {
+        /* Title */
+        .header h1 {
             margin: 0;
         }
 
-        .header-text p {
-            margin: 5px 0 0;
-        }
-
-        /* Search bar container */
         .menu-search {
-            width: 300px;
-            /* adjust as needed */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* space between label and input */
         }
 
         /* Input styling */
         .menu-search input {
-            width: 100%;
-            padding: 10px;
+            width: 320px;
+            /* adjust if needed */
+            padding: 10px 15px;
             font-size: 16px;
-            background-color: aliceblue;
-            border-radius: 500px;
+
+            background-color: #ffffffe0;
+            border-radius: 50px;
             border: 1px solid #131312;
+
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        /* Focus effect */
+        .menu-search input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
         }
     </style>
 </head>
@@ -60,6 +67,7 @@ checkLogin(); ?>
 
             <!-- Search Bar -->
             <div class="menu-search">
+                <h1 lass="search-label" style="font-size: 20px; font-weight: 500; white-space: nowrap;">Search <i class="fa-solid fa-search"></i></h1>
                 <input type="text" id="menuSearch" placeholder="Search menu..." onkeyup="searchMenu()">
             </div>
         </div>

@@ -23,42 +23,50 @@ $orders = $conn->query("
     <link rel="stylesheet" href="<?= $base_url ?>assets/icon/css/all.min.css">
 
     <style>
-        /* Header layout */
         .header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(8px);
 
+            backdrop-filter: blur(8px);
             padding: 10px 20px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Left side (text) */
-        .header-text h1 {
+        /* Title */
+        .header h1 {
             margin: 0;
         }
 
-        .header-text p {
-            margin: 5px 0 0;
-        }
-
-        /* Search bar container */
         .order-search {
-            width: 300px;
-            /* adjust as needed */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* space between label and input */
         }
 
         /* Input styling */
         .order-search input {
-            width: 100%;
-            padding: 10px;
+            width: 320px;
+            /* adjust if needed */
+            padding: 10px 15px;
             font-size: 16px;
-            background-color: aliceblue;
-            border-radius: 500px;
+
+            background-color: #ffffffe0;
+            border-radius: 50px;
             border: 1px solid #131312;
+
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        /* Focus effect */
+        .order-search input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
         }
     </style>
 </head>
@@ -75,11 +83,10 @@ $orders = $conn->query("
                 <p>Manage all orders in the system.</p>
             </div>
 
-            <!-- SEARCH BAR -->
+            <!-- Search Bar -->
             <div class="order-search">
-                <input type="text" id="orderSearch"
-                    placeholder="Search customer or address..."
-                    onkeyup="searchOrders()">
+                <h1 lass="search-label" style="font-size: 20px; font-weight: 500; white-space: nowrap;">Search <i class="fa-solid fa-search"></i></h1>
+                <input type="text" id="orderSearch" placeholder="Search Customers or Addresses..." onkeyup="searchOrders()">
             </div>
         </div>
 

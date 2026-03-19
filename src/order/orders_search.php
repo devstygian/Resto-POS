@@ -3,7 +3,7 @@ include '../config/config.php';  // Make sure $conn is defined here
 
 $search = $_GET['q'] ?? '';
 
-// Prevent SQL injection (optional, but better)
+// Prevent SQL injection
 $search_safe = $conn->real_escape_string($search);
 
 $query = "
