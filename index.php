@@ -2,25 +2,25 @@
 include 'src/config/config.php';
 checkLogin();
 
-/* TOTAL SALES */
+// Total Sales
 $total_amount = $conn->query("
     SELECT SUM(od.price * od.quantity) AS total
     FROM orderdetail od
 ")->fetch_assoc()['total'] ?? 0;
 
-/* TOTAL ORDERS */
+// Total Orders (count of items sold)
 $totalOrders = $conn->query("
     SELECT COUNT(DISTINCT orderID) AS count
     FROM orderdetail
 ")->fetch_assoc()['count'] ?? 0;
 
-/* TOTAL CUSTOMERS */
+// Total Customers
 $totalCustomers = $conn->query("
     SELECT COUNT(DISTINCT customer_name) AS count
     FROM orders
 ")->fetch_assoc()['count'] ?? 0;
 
-/* TODAY SALES */
+// Today's Sales
 $todaySales = $conn->query("
     SELECT SUM(od.price * od.quantity) AS total
     FROM orderdetail od
@@ -87,107 +87,25 @@ $todaySales = $conn->query("
             </div>
         </div>
 
-        <!-- MONTHLY SALES CHART -->
-        <div class="card chart-card">
-            <div class="card-header">
-                <h3>Monthly Sales Overview</h3>
-            </div>
-            <div class="chart-container">
-                <canvas id="chart"></canvas>
-            </div>
-        </div>
-
         <!-- RECENT ORDERS -->
-        <div class="card">
-            <h3>Recent Orders</h3>
-            <table>
-                <tr>
-                    <th>Customer</th>
-                    <th>Date</th>
-                    <th>Items</th>
-                    <th>Total</th>
-                </tr>
+        <h2 style="margin-bottom: 10px;">Recent Orders</h2>
+        <?php include 'src/dashboard/recent_orders.php'; ?>
 
-                <?php
-                $result = $conn->query("
-            SELECT o.orderID, o.customer_name, o.order_date, SUM(od.price * od.quantity) AS total
-            FROM orders o
-            JOIN orderdetail od ON o.orderID = od.orderID
-            GROUP BY o.orderID
-            ORDER BY o.order_date DESC
-            LIMIT 5
-        ");
+        <h1 style="margin-bottom: 50px;"></h1>
 
-                while ($row = $result->fetch_assoc()) {
-                    // Get items for this order
-                    $items_result = $conn->query("
-                SELECT m.menu, od.size, od.quantity
-                FROM orderdetail od
-                JOIN menu m ON od.menuID = m.menuID
-                WHERE od.orderID = {$row['orderID']}
-            ");
-                    $items_list = [];
-                    while ($item = $items_result->fetch_assoc()) {
-                        $items_list[] = "{$item['menu']} ({$item['size']}) x{$item['quantity']}";
-                    }
-                    $items_text = implode(", ", $items_list);
+        <!-- MONTHLY SALES CHART -->
+        <h2 style="margin-bottom: 10px;">Monthly Sale Chart</h2>
+        <?php include 'src/dashboard/monthly_sales.php'; ?>
 
-                    echo "
-                <tr>
-                    <td>{$row['customer_name']}</td>
-                    <td>{$row['order_date']}</td>
-                    <td>{$items_text}</td>
-                    <td>₱" . number_format($row['total'], 2) . "</td>
-                </tr>
-            ";
-                }
-                ?>
-            </table>
-        </div>
-        <script src="assets/js/jscript.js"></script>
-        <script>
-            // Sidebar toggle
-            const toggleBtn = document.getElementById('sidebar-toggle');
-            const sidebar = document.querySelector('.sidebar');
-            toggleBtn.addEventListener('click', () => sidebar.classList.toggle('show'));
+    </div>
 
-            // Fetch monthly sales for Chart.js
-            fetch('db/fetch_data.php')
-                .then(res => res.json())
-                .then(data => {
-                    const labels = data.map(item => item.month);
-                    const totals = data.map(item => item.total);
-
-                    new Chart(document.getElementById('chart'), {
-                        type: 'line',
-                        data: {
-                            labels: labels,
-                            datasets: [{
-                                label: 'Monthly Sales',
-                                data: totals,
-                                backgroundColor: 'rgba(37, 99, 235, 0.2)',
-                                borderColor: 'rgba(37, 99, 235, 1)',
-                                borderWidth: 2,
-                                tension: 0.3,
-                                fill: true
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            plugins: {
-                                legend: {
-                                    display: false
-                                }
-                            },
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
-                    });
-                });
-        </script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Sidebar toggle
+        const toggleBtn = document.getElementById('sidebar-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        toggleBtn.addEventListener('click', () => sidebar.classList.toggle('show'));
+    </script>
 
 </body>
 
