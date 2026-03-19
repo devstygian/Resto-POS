@@ -1,5 +1,7 @@
 <?php include '../config/config.php';
-checkLogin(); ?>
+checkLogin();
+checkRole(['admin']);
+?>
 
 <!DOCTYPE html>
 <html>
@@ -67,7 +69,7 @@ checkLogin(); ?>
 
             <!-- Search Bar -->
             <div class="menu-search">
-                <h1 lass="search-label" style="font-size: 20px; font-weight: 500; white-space: nowrap;">Search <i class="fa-solid fa-search"></i></h1>
+                <h1 class="search-label" style="font-size: 20px; font-weight: 500; white-space: nowrap;">Search <i class="fa-solid fa-search"></i></h1>
                 <input type="text" id="menuSearch" placeholder="Search menu..." onkeyup="searchMenu()">
             </div>
         </div>
