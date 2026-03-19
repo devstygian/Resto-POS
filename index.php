@@ -1,7 +1,7 @@
 <?php
 include 'src/config/config.php';
 checkLogin();
-
+checkRole(['admin', 'staff']);
 // Total Sales
 $total_amount = $conn->query("
     SELECT SUM(od.price * od.quantity) AS total
@@ -49,7 +49,7 @@ $todaySales = $conn->query("
         <div class="topbar">
             <button id="sidebar-toggle"><i class="fas fa-bars"></i></button>
             <h1>Dashboard</h1>
-            <p>Welcome, <?= isset($_SESSION['users']) ? $_SESSION['users'] : 'Guest' ?></p>
+            <p>Welcome, <?= isset($_SESSION['users']) ? $_SESSION['users'] : 'Guest' ?> (<?= isset($_SESSION['role']) ? $_SESSION['role'] : 'Unknown' ?>)</p>
         </div>
 
         <!-- STAT CARDS -->
