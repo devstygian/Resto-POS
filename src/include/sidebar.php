@@ -14,25 +14,25 @@
         <h2 style="border-bottom: #16161665 solid 2px; font-size: 25px; font-weight: bolder; padding-bottom: 20px; margin-bottom: 15px;">
             Nadine's Admin
         </h2>
-
-        <a href="<?= $base_url ?>index.php">
-            <i class="fas fa-chart-line"></i> Dashboard
-        </a>
-
-        <?php if ($_SESSION['role'] === 'Admin'): ?>
+        <?php if ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'staff'): ?>
+            <a href="<?= $base_url ?>index.php">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </a>
+        <?php endif; ?>
+        <?php if ($_SESSION['role'] === 'admin'): ?>
             <a href="<?= $base_url ?>src/menu/menu.php">
                 <i class="fas fa-utensils"></i> Menu
             </a>
         <?php endif; ?>
 
-        <?php if ($_SESSION['role'] === 'Admin' || $_SESSION['role'] === 'Staff'): ?>
+        <?php if ($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'staff'): ?>
             <a href="<?= $base_url ?>src/order/orders.php">
                 <i class="fas fa-receipt"></i> Orders
             </a>
         <?php endif; ?>
-        
-        <?php if ($_SESSION['role'] === 'Admin'): ?>
-            
+
+        <?php if ($_SESSION['role'] === 'admin'): ?>
+
             <a href="<?= $base_url ?>src/manage/menu_management.php">
                 <i class="fas fa-edit"></i> Menu Management
             </a>
