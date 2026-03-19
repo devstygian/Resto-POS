@@ -19,25 +19,28 @@
             <i class="fas fa-chart-line"></i> Dashboard
         </a>
 
-        <a href="<?= $base_url ?>src/menu/menu.php">
-            <i class="fas fa-utensils"></i> Menu
-        </a>
+        <?php if ($_SESSION['role'] === 'Admin'): ?>
+            <a href="<?= $base_url ?>src/menu/menu.php">
+                <i class="fas fa-utensils"></i> Menu
+            </a>
+        <?php endif; ?>
 
-        <a href="<?= $base_url ?>src/order/orders.php">
-            <i class="fas fa-receipt"></i> Orders
-        </a>
+        <?php if ($_SESSION['role'] === 'Admin' || $_SESSION['role'] === 'Staff'): ?>
+            <a href="<?= $base_url ?>src/order/orders.php">
+                <i class="fas fa-receipt"></i> Orders
+            </a>
+        <?php endif; ?>
+        
+        <?php if ($_SESSION['role'] === 'Admin'): ?>
+            
+            <a href="<?= $base_url ?>src/manage/menu_management.php">
+                <i class="fas fa-edit"></i> Menu Management
+            </a>
 
-        <!--<a href="<?= $base_url ?>users/customers.php">
-            <i class="fas fa-users"></i> Customers
-        </a>-->
-
-        <a href="<?= $base_url ?>src/manage/menu_management.php">
-            <i class="fas fa-edit"></i> Menu Management
-        </a>
-
-        <a href="<?= $base_url ?>src/accounts/staff.php">
-            <i class="fas fa-user-shield"></i> Accounts
-        </a>
+            <a href="<?= $base_url ?>src/accounts/staff.php">
+                <i class="fas fa-user-shield"></i> Accounts
+            </a>
+        <?php endif; ?>
 
         <a href="<?= $base_url ?>auth/logout.php">
             <i class="fas fa-sign-out-alt"></i> Logout
