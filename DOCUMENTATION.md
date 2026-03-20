@@ -94,8 +94,8 @@
 - Actions often use `$_POST`, SQL string build, then redirect.
 - Visualization data endpoints provide JSON to JS charts.
 
-## 13) Improvements planned in this doc
-- Add automated tests (if moving to frameworks).
-- Document SQL schema (tables/columns + indexes) with ER diagram.
-- Add code style guidelines (PSR-12 or custom) and security checklist.
+### Improvements planned in this doc:
+- [ ] Add automated tests (if moving to frameworks).
+- [ ] Document SQL schema (tables/columns + indexes) with ER diagram.
+- [ ] Add code style guidelines (PSR-12 or custom) and security checklist.
 
