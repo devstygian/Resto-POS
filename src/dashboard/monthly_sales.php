@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <div class="card chart-card">
     <div class="card-header">
         <h3>Monthly Sales Overview</h3>
@@ -13,11 +9,11 @@
 
 <script>
     // Fetch monthly sales for Chart.js
-    fetch('../../db/fetch_data.php')
+    fetch('db/fetch_data.php')
         .then(res => res.json())
         .then(data => {
             const labels = data.map(item => item.month);
-            const totals = data.map(item => item.total);
+            const totals = data.map(item => parseFloat(item.total));
 
             new Chart(document.getElementById('chart'), {
                 type: 'line',
@@ -30,7 +26,9 @@
                         borderColor: 'rgba(37, 99, 235, 1)',
                         borderWidth: 2,
                         tension: 0.3,
-                        fill: true
+                        fill: true,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
                     }]
                 },
                 options: {
@@ -38,14 +36,35 @@
                     plugins: {
                         legend: {
                             display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return '₱' + context.raw.toLocaleString('en-PH', {
+                                        minimumFractionDigits: 2,
+                                        maximumFractionDigits: 2
+                                    });
+                                }
+                            }
                         }
                     },
                     scales: {
                         y: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '₱' + value.toLocaleString('en-PH');
+                                }
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                autoSkip: false
+                            }
                         }
                     }
                 }
             });
-        });
+        })
+        .catch(err => console.error('Error fetching monthly sales:', err));
 </script>
