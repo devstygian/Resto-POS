@@ -93,19 +93,19 @@ checkRole(['admin']);
 
         <!-- Customer Info -->
         <label for="customerName">Full Name:</label>
-        <input type="text" id="customerName" placeholder="Enter customer full name">
+        <input type="text" id="customerName" placeholder="Enter customer full name" required>
 
         <label for="customerPhone">Phone Number:</label>
-        <input type="number" id="customerPhone" placeholder="+63xx-xxxx-xxxx" value="" maxlength="11">
+        <input type="number" id="customerPhone" placeholder="+63xx-xxxx-xxxx" limit="11" oninput="this.value = this.value.slice(0, 11)" required>
 
         <label for="customerAddress">Address:</label>
-        <input type="text" id="customerAddress" placeholder="Enter address">
+        <input type="text" id="customerAddress" placeholder="Enter address" required>
 
         <label for="orderNotes">Notes / Special Requests:</label>
         <textarea id="orderNotes" placeholder="Add any notes or special requests here"></textarea>
 
-        <label for="deliveryType">Delivery Type:</label>
-        <select id="deliveryType">
+        <label for="deliveryType" required>Delivery Type:</label>
+        <select id="deliveryType" required>
             <option value="Pickup">Pick Up</option>
             <option value="Delivery">Delivery</option>
         </select>

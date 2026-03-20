@@ -75,6 +75,14 @@ C:\xampp\htdocs\Nadine-system
 ```bash
 http://localhost/Nadine-system
 ```
+
+---
+## Project Documentation
+This repository includes a detailed internal developer and architecture document:
+- `DOCUMENTATION.md` (main source for feature explanation, module breakdown, endpoints, and security notes)
+
+Use this file to onboard team members quickly and avoid repeating code walkthroughs.
+
 ---
 ### Commit Format
 ```bash

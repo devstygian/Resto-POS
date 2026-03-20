@@ -47,3 +47,14 @@ function updateStatus(orderId, status) {
         .then(msg => alert(msg))
         .catch(err => console.error("Error updating status:", err));
 }
+function updatePaymentStatus(orderID, paymentStatus) {
+    fetch(`${BASE_URL}upPayment_status.php`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ id: orderID, payment_status: paymentStatus })
+    })
+        .then(res => res.text())
+        .then(data => {console.log(data);
+        })
+        .catch(err => console.error(err));
+}

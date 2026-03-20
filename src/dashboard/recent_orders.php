@@ -6,7 +6,7 @@ if ($conn->connect_error) {
 }
 
 $orders = $conn->query("
-    SELECT orderID, customer_name, total_amount, status, order_date
+    SELECT orderID, customer_name, total_amount, status, order_date, payment_status
     FROM orders 
     ORDER BY order_date DESC
     LIMIT 5
@@ -20,8 +20,10 @@ $orders = $conn->query("
                 <th>Customer</th>
                 <th>Order Date</th>
                 <th>Items</th>
-                <th>Status</th>
                 <th>Total (₱)</th>
+                <th>Status</th>
+                <th>Payment Status</th>
+
 
             </tr>
         </thead>
@@ -62,6 +64,7 @@ $orders = $conn->query("
 
                         <td>₱<?= number_format($order['total_amount'], 2); ?></td>
                         <td><?= htmlspecialchars($order['status']); ?></td>
+                        <td><?= htmlspecialchars($order['payment_status']); ?></td>
                     </tr>
                 <?php endwhile; ?>
             <?php else: ?>

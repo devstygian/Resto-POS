@@ -7,7 +7,7 @@ $search = $_GET['q'] ?? '';
 $search_safe = $conn->real_escape_string($search);
 
 $query = "
-    SELECT orderID, customer_name, total_amount, status, order_date, delivery_datetime, address, delivery_type, notes 
+    SELECT orderID, customer_name, total_amount, status, order_date, delivery_datetime, address, delivery_type, notes, payment_status 
     FROM orders 
     WHERE customer_name LIKE '%$search_safe%' 
        OR address LIKE '%$search_safe%' 
@@ -17,7 +17,7 @@ $query = "
 $result = $conn->query($query);
 
 if (!$result) {
-    echo "<tr><td colspan='8'>Query error: " . $conn->error . "</td></tr>";
+    echo "<tr><td colspan='9'>Query error: " . $conn->error . "</td></tr>";
     exit;
 }
 
@@ -43,6 +43,13 @@ if ($result->num_rows > 0):
                 </select>
             </td>
             <td>
+                <select onchange="updatePaymentStatus(<?= $order['orderID']; ?>, this.value)" class="status-select">
+                    <option value="Pending" <?= $order['payment_status'] === 'Pending' ? 'selected' : ''; ?>>Pending</option>
+                    <option value="Paid" <?= $order['payment_status'] === 'Paid' ? 'selected' : ''; ?>>Paid</option>
+                    <option value="Refunded" <?= $order['payment_status'] === 'Refunded' ? 'selected' : ''; ?>>Refunded</option>
+                </select>
+            </td>
+            <td>
                 <button class="action-btn view-btn" onclick="viewItems(<?= $order['orderID']; ?>)">View Items</button>
                 <button class="action-btn delete-btn" onclick="deleteOrder(<?= $order['orderID']; ?>)">Delete</button>
             </td>
@@ -50,6 +57,6 @@ if ($result->num_rows > 0):
 <?php
     endwhile;
 else:
-    echo "<tr><td colspan='8'>No orders found</td></tr>";
+    echo "<tr><td colspan='9'>No orders found</td></tr>";
 endif;
 ?>
