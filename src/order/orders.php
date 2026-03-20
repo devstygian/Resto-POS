@@ -8,7 +8,7 @@ $conn = new mysqli("localhost", "root", "", "ordering_system");
 
 // Fetch all orders (fallback display)
 $orders = $conn->query("
-    SELECT orderID, customer_name, total_amount, status, order_date, delivery_datetime, address, delivery_type, notes 
+    SELECT orderID, customer_name, total_amount, status, order_date, delivery_datetime, address, delivery_type, notes, payment_status
     FROM orders 
     ORDER BY order_date DESC
 ");
@@ -102,6 +102,7 @@ $orders = $conn->query("
                         <th>Address</th>
                         <th>Delivery Type</th>
                         <th>Status</th>
+                        <th>Payment Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -128,6 +129,15 @@ $orders = $conn->query("
                                     <option value="Cancelled" <?= $order['status'] === 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
                                 </select>
                             </td>
+
+                            <td>
+                                <select onchange="updatePaymentStatus(<?= $order['orderID']; ?>, this.value)" class="status-select">
+                                    <option value="Pending" <?= $order['payment_status'] === 'Pending' ? 'selected' : ''; ?>>Pending</option>
+                                    <option value="Paid" <?= $order['payment_status'] === 'Paid' ? 'selected' : ''; ?>>Paid</option>
+                                    <option value="Refunded" <?= $order['payment_status'] === 'Refunded' ? 'selected' : ''; ?>>Refunded</option>
+                                </select>
+                            </td>
+
                             <td>
                                 <button class="action-btn view-btn" onclick="viewItems(<?= $order['orderID']; ?>)">View Items</button>
                                 <button class="action-btn delete-btn" onclick="deleteOrder(<?= $order['orderID']; ?>)">Delete</button>
