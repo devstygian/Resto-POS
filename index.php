@@ -2,37 +2,52 @@
 include 'src/config/config.php';
 checkLogin();
 checkRole(['admin', 'staff']);
-// Total Sales
+
+// Total Sales (only paid orders)
 $total_amount = $conn->query("
     SELECT SUM(oi.price * oi.quantity) AS total
     FROM order_items oi
+    JOIN orders o ON oi.orderID = o.orderID
+    WHERE o.payment_status = 'Paid'
 ")->fetch_assoc()['total'] ?? 0;
 
-// Total Orders
+// Total Orders (transactions with paid orders)
 $totalOrders = $conn->query("
-    SELECT COUNT(DISTINCT o.orderID) AS count
-    FROM orders o
+    SELECT COUNT(*) AS count
+    FROM orders
+    WHERE payment_status = 'Paid'
 ")->fetch_assoc()['count'] ?? 0;
 
-// Total Customers
+// Total Items Sold (sum of quantities for paid orders)
+$totalItems = $conn->query("
+    SELECT SUM(oi.quantity) AS total
+    FROM order_items oi
+    JOIN orders o ON oi.orderID = o.orderID
+    WHERE o.payment_status = 'Paid'
+")->fetch_assoc()['total'] ?? 0;
+
+// Total Customers (unique customers from paid orders)
 $totalCustomers = $conn->query("
     SELECT COUNT(DISTINCT customer_name) AS count
     FROM orders
+    WHERE payment_status = 'Paid'
 ")->fetch_assoc()['count'] ?? 0;
 
-// Today's Sales
+// Today's Sales (sum of prices from paid orders today)
 $todaySales = $conn->query("
     SELECT SUM(oi.price * oi.quantity) AS total
     FROM order_items oi
     JOIN orders o ON oi.orderID = o.orderID
     WHERE DATE(o.order_date) = CURDATE()
+      AND o.payment_status = 'Paid'
 ")->fetch_assoc()['total'] ?? 0;
 
-$total_amount_paid = $conn->query("
+// Total Amount Paid (all-time, for fact report)
+$total_amount_refunded = $conn->query("
     SELECT SUM(oi.price * oi.quantity) AS total
     FROM order_items oi
     JOIN orders o ON oi.orderID = o.orderID
-    WHERE o.status = 'completed'
+    WHERE o.payment_status = 'Refunded'
 ")->fetch_assoc()['total'] ?? 0;
 ?>
 
@@ -72,8 +87,8 @@ $total_amount_paid = $conn->query("
             <div class="card">
                 <div class="card-icon orders"><i class="fas fa-money-bill"></i></div>
                 <div>
-                    <h3>Paid Orders</h3>
-                    <h2>₱<?= number_format($total_amount_paid, 2) ?></h2>
+                    <h3>Refunded Orders</h3>
+                    <h2>₱<?= number_format($total_amount_refunded, 2) ?></h2>
                 </div>
             </div>
 
@@ -90,6 +105,14 @@ $total_amount_paid = $conn->query("
                 <div>
                     <h3>Total Orders</h3>
                     <h2><?= $totalOrders ?></h2>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon orders"><i class="fas fa-box"></i></div>
+                <div>
+                    <h3>Total Items Sold</h3>
+                    <h2><?= $totalItems ?></h2>
                 </div>
             </div>
 
@@ -112,6 +135,10 @@ $total_amount_paid = $conn->query("
         <!-- MONTHLY SALES CHART -->
         <h2 style="margin-bottom: 10px;">Monthly Sale Chart</h2>
         <?php include 'src/dashboard/monthly_sales.php'; ?>
+
+        <!-- Weely Sales Chart -->
+        <h2 style="margin-bottom: 10px; margin-top: 50px;">Weekly Sale Chart</h2>
+        <?php include 'src/dashboard/weekly_sales.php'; ?>
 
     </div>
 
