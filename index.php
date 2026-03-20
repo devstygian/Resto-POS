@@ -49,7 +49,6 @@ $total_amount_refunded = $conn->query("
     JOIN orders o ON oi.orderID = o.orderID
     WHERE o.payment_status = 'Refunded'
 ")->fetch_assoc()['total'] ?? 0;
-
 ?>
 
 <!DOCTYPE html>
