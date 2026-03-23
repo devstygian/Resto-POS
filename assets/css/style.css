@@ -22,15 +22,52 @@ body {
 }
 
 /* ===== TOPBAR ===== */
+/* TOPBAR */
 .topbar {
+    position: sticky;
+    top: 0;
+    left: 250px;
+
+    right: 0;
+    z-index: 1000;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    gap: 15px;
+
+    margin-top: -40px;
+    margin-bottom: 30px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 25px;
+    padding-bottom: 18px;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    
+    transition: all 0.3s ease;
+}
+i {
+    font-size: 25px;
+}
+/* Left side (Dashboard title) */
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.topbar h1 {
-    font-size: 28px;
+.topbar-left h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Right side (Welcome Admin) */
+.topbar-right p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #6b7280;
 }
 
 /* Sidebar toggle button */
@@ -121,21 +158,6 @@ input {
     border: 1px solid #ddd;
 }
 
-/* ===== LOGIN PAGE ===== */
-.login-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.login-card {
-    background: white;
-    padding: 50px 40px;
-    border-radius: 16px;
-    width: 380px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
