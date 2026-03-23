@@ -8,7 +8,7 @@ $result = $conn->query("
            WEEK(o.order_date, 1) AS week, 
            SUM(CASE WHEN o.payment_status = 'Paid' THEN oi.price * oi.quantity ELSE 0 END) AS paid_total,
            SUM(CASE WHEN o.payment_status = 'Pending' THEN oi.price * oi.quantity ELSE 0 END) AS pending_total,
-           SUM(CASE WHEN o.payment_status = 'Refunded' THEN oi.price * oi.quantity ELSE 0 END) AS refunded_total
+           SUM(CASE WHEN o.payment_status = 'Cancelled' THEN oi.price * oi.quantity ELSE 0 END) AS cancelled_total
     FROM order_items oi
     JOIN orders o ON oi.orderID = o.orderID
     GROUP BY year, week
@@ -21,7 +21,7 @@ while ($row = $result->fetch_assoc()) {
         'label' => 'W' . $row['week'] . ' - ' . $row['year'],
         'paid' => $row['paid_total'],
         'pending' => $row['pending_total'],
-        'refunded' => $row['refunded_total']
+        'cancelled' => $row['cancelled_total']
     ];
 }
 
