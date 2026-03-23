@@ -21,7 +21,7 @@ $orders = $conn->query("
                 <th>Order Date</th>
                 <th>Items</th>
                 <th>Total (₱)</th>
-                <th>Status</th>
+                <th>Food Status</th>
                 <th>Payment Status</th>
 
 
