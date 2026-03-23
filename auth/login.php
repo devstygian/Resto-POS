@@ -34,13 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <title>Admin Login</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
     <script src="https://kit.fontawesome.com/f02a36f28e.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="login-body">
 
     <div class="login-card">
+        <!-- <img src="../assets/img/nadine_logo.jpg" alt="logo"> -->
         <h2 style="margin-bottom: 20px;">Admin Login</h2>
 
         <form method="POST">
@@ -50,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" id="password" name="password" placeholder="Password" required>
                 <span id="togglePassword"
                     style="position:absolute; right:10px; top:35%; transform:translateY(-50%); cursor:pointer;">
-                    <i class="fa-regular fa-eye"></i>
+                    <i class="fas fa-eye"></i>
                 </span>
             </div>
 
