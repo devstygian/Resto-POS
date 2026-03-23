@@ -5,13 +5,14 @@ toggleBtn.addEventListener('click', () => {
     sidebar.classList.toggle('show');
 });
 
+/*
 fetch('db/fetch_data.php')
     .then(res => res.json())
     .then(data => {
         const labels = data.map(item => item.month);
         const totals = data.map(item => parseFloat(item.total));
 
-        new Chart(document.getElementById('chart'), {
+        new Chart(document.getElementById('monthlyChart'), {
             type: 'line',
             data: {
                 labels: labels,
@@ -23,4 +24,4 @@ fetch('db/fetch_data.php')
             }
         });
     });
-   
+   */
