@@ -30,7 +30,14 @@ $orders = $conn->query("
             z-index: 1000;
 
             backdrop-filter: blur(8px);
-            padding: 10px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 25px;
+            padding-bottom: 15px;
+
+            margin-top: -40px;
+            margin-bottom: 30px;
 
             display: flex;
             justify-content: space-between;
@@ -40,6 +47,7 @@ $orders = $conn->query("
         /* Title */
         .header h1 {
             margin: 0;
+            font-size: 2rem;
         }
 
         .order-search {
@@ -80,8 +88,7 @@ $orders = $conn->query("
 
         <div class="header">
             <div class="header-text">
-                <h1>Orders management</h1>
-                <p>Manage all orders in the system.</p>
+                <h1 style="font-size: 2rem;">Order List</h1>
             </div>
 
             <!-- Search Bar -->
@@ -101,7 +108,7 @@ $orders = $conn->query("
                         <th>Delivery Date</th>
                         <th>Address</th>
                         <th>Delivery Type</th>
-                        <th>Status</th>
+                        <th>Food Status</th>
                         <th>Payment Status</th>
                         <th>Actions</th>
                     </tr>
@@ -134,7 +141,7 @@ $orders = $conn->query("
                                 <select onchange="updatePaymentStatus(<?= $order['orderID']; ?>, this.value)" class="status-select">
                                     <option value="Pending" <?= $order['payment_status'] === 'Pending' ? 'selected' : ''; ?>>Pending</option>
                                     <option value="Paid" <?= $order['payment_status'] === 'Paid' ? 'selected' : ''; ?>>Paid</option>
-                                    <option value="Refunded" <?= $order['payment_status'] === 'Refunded' ? 'selected' : ''; ?>>Refunded</option>
+                                    <option value="Cancelled" <?= $order['payment_status'] === 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
                                 </select>
                             </td>
 
