@@ -10,13 +10,54 @@ checkRole(['admin']);
   <link rel="stylesheet" href="<?= $base_url ?>assets/css/menu_management.css">
   <link rel="stylesheet" href="<?= $base_url ?>assets/css/sidebar.css">
   <link rel="stylesheet" href="<?= $base_url ?>assets/icon/css/all.min.css">
+
+  <style>
+    /* TOPBAR */
+    .topbar {
+      position: sticky;
+      top: 0;
+      left: 250px;
+
+      right: 0;
+      z-index: 1000;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+
+      margin-top: -40px;
+      margin-bottom: 30px;
+
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 25px;
+      padding-bottom: 0px;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+      transition: all 0.3s ease;
+    }
+
+    i {
+      font-size: 25px;
+    }
+  </style>
 </head>
 
 <body>
   <?php include '../include/sidebar.php'; ?>
   <div class="content">
 
-    <h1>Menu Management</h1>
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <h1>Custom Menu</h1>
+      <p style="margin-top: -20px;">
+        Welcome, <?= $_SESSION['users'] ?? 'Guest' ?>
+        (<?= $_SESSION['role'] ?? 'Unknown' ?>)
+        <i class="fas fa-user-circle"></i>
+      </p>
+    </div>
 
     <!-- ADD MENU -->
     <div class="add-box">
