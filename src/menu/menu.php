@@ -18,7 +18,11 @@ checkRole(['admin']);
             z-index: 1000;
 
             backdrop-filter: blur(8px);
-            padding: 10px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 20px 20px;
+
+            margin-top: -40px;
+            margin-bottom: 20px;
 
             display: flex;
             justify-content: space-between;
@@ -27,6 +31,7 @@ checkRole(['admin']);
 
         /* Title */
         .header h1 {
+            font-size: 2rem;
             margin: 0;
         }
 
@@ -65,7 +70,7 @@ checkRole(['admin']);
 
     <div class="content">
         <div class="header">
-            <h1>Food Menu</h1>
+            <h1 style="font-size: 2rem;">Food Menu</h1>
 
             <!-- Search Bar -->
             <div class="menu-search">
