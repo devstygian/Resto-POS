@@ -3,7 +3,7 @@
 
     const notifUrl = '/Nadine-system/src/notification/get_notifications.php';
     const orderUrl = '/Nadine-system/src/notification/get_orders.php';
-    const dashboardUrl = '/Nadine-system/src/dashboard/get_dashboard.php'; // you will create this
+    const dashboardUrl = '/Nadine-system/src/dashboard/get_dashboard.php';
 
     /* NOTIFICATIONS (GLOBAL)*/
     function loadNotifications() {
