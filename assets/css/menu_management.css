@@ -11,41 +11,9 @@ body {
     min-height: 100vh;
 }
 
-/* ===== SIDEBAR ===== */
-.sidebar {
-    width: 260px;
-    background: #111827;
-    color: white;
-    padding: 30px 20px;
-    position: fixed;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar h2 {
-    margin-bottom: 40px;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.sidebar a {
-    padding: 12px 15px;
-    margin-bottom: 8px;
-    color: #d1d5db;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s ease;
-}
-
-.sidebar a:hover {
-
-    border-bottom: 1px solid #ccf7af9f;
-    color: rgb(245, 239, 239);
-}
 /* ===== MAIN CONTENT ===== */
 .content {
-    margin-left: 260px;
+    margin-left: 210px;
     padding: 40px;
     width: 100%;
 }
