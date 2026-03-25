@@ -10,8 +10,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'staff') {
 */
 header('Content-Type: application/json');
 
-// ✅ USE EXISTING CONNECTION (DO NOT REDECLARE $conn)
-
 // Total pending
 $total = $conn->query("
     SELECT COUNT(*) as c 
