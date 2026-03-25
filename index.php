@@ -33,6 +33,23 @@ $todaySales = $conn->query("
     WHERE DATE(o.order_date) = CURDATE()
       AND o.payment_status = 'Paid'
 ")->fetch_assoc()['total'] ?? 0;
+
+// Total Items Sold (sum of quantities for paid orders)
+$totalItems = $conn->query("
+    SELECT SUM(oi.quantity) AS total
+    FROM order_items oi
+    JOIN orders o ON oi.orderID = o.orderID
+    WHERE o.payment_status = 'Paid'
+")->fetch_assoc()['total'] ?? 0;
+
+// Today's Orders
+$todayOrders = $conn->query("
+    SELECT COUNT(*) AS count
+    FROM orders
+    WHERE DATE(order_date) = CURDATE()
+      AND payment_status = 'Paid'
+")->fetch_assoc()['count'] ?? 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +75,7 @@ $todaySales = $conn->query("
 
         <!-- TOPBAR -->
         <div class="topbar">
-            <button id="sidebar-toggle"><i class="fas fa-bars"></i></button>
+
             <h1>Dashboard</h1>
             <p>
                 Welcome, <?= $_SESSION['users'] ?? 'Guest' ?>
@@ -68,15 +85,17 @@ $todaySales = $conn->query("
         </div>
 
         <!-- SUMMARY CARDS -->
-       
-            <?php include 'src/dashboard/summary_cards.php'; ?>
+        <h2 style="margin-bottom: -4%;">Summary Report</h2>
+        <?php include 'src/dashboard/summary_cards.php'; ?>
 
-            <!-- RECENT ORDERS -->
-            <h2 style="margin-bottom: 10px;">Recent Orders</h2>
-            <?php include 'src/dashboard/recent_orders.php'; ?>
+        <!-- RECENT ORDERS -->
+        <h2 style="margin-bottom: 10px;">Recent Orders</h2>
+        <?php include 'src/dashboard/recent_orders.php'; ?>
 
-        </div>
-
+    </div>
+    <!--
+    <script src="<?= $base_url ?>assets/js/notif.js"></script>
+    -->
 </body>
 
 </html>
