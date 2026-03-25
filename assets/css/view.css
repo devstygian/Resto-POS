@@ -5,76 +5,58 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f5f7fa;
-}
-
 /* ===== CONTENT ===== */
 .content {
-    margin-left: 300px;
-    padding: 30px 20px;
-    min-height: 100vh;
+    margin-left: 250px;
+    padding: 30px;
+    width: 100%;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 25px 20px 15px 20px;
-    margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 25px;
 }
 
 .header h1 {
-    font-size: 2rem;
+    font-size: 26px;
 }
 
+/* SEARCH */
 .order-search input {
-    width: 320px;
-    padding: 10px 15px;
-    font-size: 16px;
-    border-radius: 50px;
-    border: 1px solid #131312;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
     outline: none;
-    background: #ffffffe0;
+    width: 250px;
 }
 
-.order-search input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-}
-
-/* ===== GRID ===== */
+/* GRID */
 .orders-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
 }
 
-/* ===== CARD ===== */
+/* CARD */
 .order-card {
     background: #fff;
     border-radius: 14px;
-    padding: 16px;
+    padding: 18px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 260px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    gap: 15px;
     transition: 0.2s ease;
 }
 
 .order-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* HEADER */
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -83,71 +65,79 @@ body {
 
 .card-header h3 {
     font-size: 16px;
-    font-weight: 600;
-    margin: 0;
 }
 
 .order-date {
-    font-size: 11px;
+    font-size: 12px;
     color: #777;
+}
+
+/* ITEMS */
+.card-items {
+    max-height: 150px;
+    overflow-y: auto;
+    padding-right: 5px;
 }
 
 .card-items ul {
     list-style: none;
-    padding: 0;
-    margin: 10px 0;
 }
 
 .card-items li {
     display: flex;
     justify-content: space-between;
     font-size: 13px;
-    padding: 3px 0;
-    gap: 10px;
+    padding: 4px 0;
 }
 
-.item-name {
-    color: #333;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 70%;
-}
-
-.item-price {
-    font-weight: 600;
-}
-
+/* FOOTER */
 .card-footer {
     border-top: 1px solid #eee;
     padding-top: 10px;
 }
 
+/* TOTAL */
 .total {
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
     margin-bottom: 10px;
 }
 
+.total strong {
+    color: #4CAF50;
+}
+
+/* STATUS GRID */
 .status-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
 
+/* STATUS ITEM */
 .status-item label {
-    margin-bottom: 4px;
+    font-size: 11px;
     color: #666;
 }
 
-.status-select,
-.payment-badge {
+/* SELECT */
+.status-select {
+    width: 100%;
     padding: 6px;
     border-radius: 6px;
-    font-size: 13px;
+    border: 1px solid #ccc;
 }
 
+/* PAYMENT BADGE */
+.payment-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* COLORS */
 .payment-badge.paid {
     background: #d4edda;
     color: #155724;
@@ -158,53 +148,13 @@ body {
     color: #856404;
 }
 
-.payment-badge.failed,
-.payment-badge.unpaid {
+.payment-badge.failed {
     background: #f8d7da;
     color: #721c24;
 }
 
+/* EMPTY */
 .no-orders {
-    grid-column: 1 / -1;
     text-align: center;
-    color: #777;
-    padding: 30px 0;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1200px) {
-    .orders-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 900px) {
-    .orders-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .order-search input {
-        width: 220px;
-    }
-}
-
-@media (max-width: 600px) {
-    .orders-container {
-        grid-template-columns: 1fr;
-    }
-
-    .content {
-        margin-left: 0;
-        padding: 15px;
-    }
-
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .order-search input {
-        width: 100%;
-    }
+    margin-top: 50px;
 }

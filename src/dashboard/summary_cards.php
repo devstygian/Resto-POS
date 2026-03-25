@@ -68,30 +68,32 @@ $todayOrders = $conn->query("
 ?>
 
 <!-- ===== ENHANCED DATE PICKER + DROPDOWN FORM ===== -->
-<div class="filter-container">
-    <form method="GET" class="date-filter-form">
-        <div class="filter-group">
-            <label for="filter">Filter:</label>
-            <select name="filter" id="filter" onchange="toggleDatePicker()">
-                <option value="all_time" <?= $filter === 'all_time' ? 'selected' : '' ?>>Overall</option>
-                <option value="current_date" <?= $filter === 'current_date' ? 'selected' : '' ?>>Current Date</option>
-                <option value="weekdays" <?= $filter === 'weekdays' ? 'selected' : '' ?>>Weekdays (Mon-Fri)</option>
-                <option value="weekend" <?= $filter === 'weekend' ? 'selected' : '' ?>>Weekend (Sat-Sun)</option>
-                <option value="specific_date" <?= $filter === 'specific_date' ? 'selected' : '' ?>>Specific Date</option>
-            </select>
-        </div>
 
-        <div class="filter-group">
-            <input type="date" name="summary_date" id="summary_date" value="<?= htmlspecialchars($selectedDate) ?>" style="<?= $filter === 'specific_date' ? '' : 'display:none;' ?>">
-        </div>
+<?php if ($_SESSION['role'] === 'admin'): ?>
+    <div class="filter-container">
+        <form method="GET" class="date-filter-form">
+            <div class="filter-group">
+                <label for="filter">Filter:</label>
+                <select name="filter" id="filter" onchange="toggleDatePicker()">
+                    <option value="all_time" <?= $filter === 'all_time' ? 'selected' : '' ?>>Overall</option>
+                    <option value="current_date" <?= $filter === 'current_date' ? 'selected' : '' ?>>Current Date</option>
+                    <option value="weekdays" <?= $filter === 'weekdays' ? 'selected' : '' ?>>Weekdays (Mon-Fri)</option>
+                    <option value="weekend" <?= $filter === 'weekend' ? 'selected' : '' ?>>Weekend (Sat-Sun)</option>
+                    <option value="specific_date" <?= $filter === 'specific_date' ? 'selected' : '' ?>>Specific Date</option>
+                </select>
+            </div>
 
-        <div class="filter-actions">
-            <button type="submit">Filter</button>
-            <button type="button" class="reset-btn" onclick="resetFilter()">Reset</button>
-        </div>
-    </form>
-</div>
+            <div class="filter-group">
+                <input type="date" name="summary_date" id="summary_date" value="<?= htmlspecialchars($selectedDate) ?>" style="<?= $filter === 'specific_date' ? '' : 'display:none;' ?>">
+            </div>
 
+            <div class="filter-actions">
+                <button type="submit">Filter</button>
+                <button type="button" class="reset-btn" onclick="resetFilter()">Reset</button>
+            </div>
+        </form>
+    </div>
+<?php endif; ?>
 <!-- ===== SUMMARY CARDS ===== -->
 <div class="cards">
     <!-- Overall / Filtered Summary -->

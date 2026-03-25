@@ -147,7 +147,7 @@ $orders = $conn->query("
 
                             <td>
                                 <button class="action-btn view-btn" onclick="viewItems(<?= $order['orderID']; ?>)">View Items</button>
-                                <button class="action-btn delete-btn" onclick="deleteOrder(<?= $order['orderID']; ?>)">Delete</button>
+                                <!--<button class="action-btn delete-btn" onclick="deleteOrder(<?= $order['orderID']; ?>)">Delete</button>-->
                             </td>
                         </tr>
                     <?php endwhile; ?>
