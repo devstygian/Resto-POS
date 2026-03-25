@@ -62,6 +62,44 @@ $todayOrders = $conn->query("
     <link rel="stylesheet" href="<?= $base_url ?>assets/icon/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <style>
+        /* ===== TOPBAR ===== */
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 230px;
+            right: 0;
+            height: 70px;
+            background-color: transparent;
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 45px;
+            padding-bottom: 35px;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        /* Topbar content */
+        .topbar h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .topbar p {
+            font-size: 16px;
+            color: #111111;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -82,7 +120,7 @@ $todayOrders = $conn->query("
         </div>
 
         <!-- SUMMARY CARDS -->
-        <h2 style="margin-bottom: -4%;">Summary Report</h2>
+        <h2 style="margin-bottom: -4%; margin-top:80px;">Summary Report</h2>
         <?php include 'src/dashboard/summary_cards.php'; ?>
 
         <!-- RECENT ORDERS -->
@@ -91,7 +129,7 @@ $todayOrders = $conn->query("
 
     </div>
     <script src="<?= $base_url ?>assets/js/notif.js"></script>
- 
+
 </body>
 
 </html>
