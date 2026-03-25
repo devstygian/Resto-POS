@@ -1,12 +1,13 @@
 /* ===== GLOBAL ===== */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Segoe UI', sans-serif;
     background: #f5f7fa;
-    margin: 0;
 }
 
 /* ===== CONTENT ===== */
@@ -14,7 +15,6 @@ body {
     margin-left: 300px;
     padding: 30px 20px;
     min-height: 100vh;
-    width: 100%;
 }
 
 /* ===== HEADER ===== */
@@ -25,7 +25,6 @@ body {
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 25px 20px 15px 20px;
-    margin-top: -40px;
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
@@ -33,25 +32,17 @@ body {
 }
 
 .header h1 {
-    margin: 0;
     font-size: 2rem;
-}
-
-.order-search {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .order-search input {
     width: 320px;
     padding: 10px 15px;
     font-size: 16px;
-    background-color: #ffffffe0;
     border-radius: 50px;
     border: 1px solid #131312;
     outline: none;
-    transition: 0.3s ease;
+    background: #ffffffe0;
 }
 
 .order-search input:focus {
@@ -63,7 +54,7 @@ body {
 .orders-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    gap: 20px;
 }
 
 /* ===== CARD ===== */
@@ -101,10 +92,6 @@ body {
     color: #777;
 }
 
-.card-items {
-    flex-grow: 1;
-}
-
 .card-items ul {
     list-style: none;
     padding: 0;
@@ -116,10 +103,15 @@ body {
     justify-content: space-between;
     font-size: 13px;
     padding: 3px 0;
+    gap: 10px;
 }
 
 .item-name {
     color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 70%;
 }
 
 .item-price {
@@ -144,31 +136,16 @@ body {
     gap: 10px;
 }
 
-.status-item {
-    display: flex;
-    flex-direction: column;
-    font-size: 12px;
-}
-
 .status-item label {
     margin-bottom: 4px;
     color: #666;
 }
 
-.status-select {
-    padding: 6px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 13px;
-    cursor: pointer;
-}
-
+.status-select,
 .payment-badge {
     padding: 6px;
     border-radius: 6px;
-    text-align: center;
     font-size: 13px;
-    font-weight: 500;
 }
 
 .payment-badge.paid {
@@ -194,84 +171,40 @@ body {
     padding: 30px 0;
 }
 
-/* ===== ENHANCED NOTIFICATIONS ===== */
-.notif-wrapper {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.notif-badge {
-    position: absolute;
-    top: -8px;
-    right: -12px;
-    background: #ff4757;
-    color: white;
-    font-size: 11px;
-    min-width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    font-weight: bold;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 6px rgba(255, 71, 87, 0.4);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7);
-    }
-
-    70% {
-        box-shadow: 0 0 0 10px rgba(255, 71, 87, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+    .orders-container {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-.notif-container {
-    position: absolute;
-    top: -15px;
-    right: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 8px;
-    pointer-events: none;
-    z-index: 9999;
-    min-width: 150px;
+@media (max-width: 900px) {
+    .orders-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .order-search input {
+        width: 220px;
+    }
 }
 
-.notif-popup {
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    color: white;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 8px 14px;
-    border-radius: 8px;
-    opacity: 0;
-    transform: translateY(-20px) scale(0.8);
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
-    border-left: 4px solid #fff;
-    white-space: nowrap;
-}
+@media (max-width: 600px) {
+    .orders-container {
+        grid-template-columns: 1fr;
+    }
 
-.notif-popup.show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
+    .content {
+        margin-left: 0;
+        padding: 15px;
+    }
 
-/* Click to view orders */
-.view-orders-link {
-    position: relative;
-}
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
 
-.view-orders-link:hover .notif-wrapper i {
-    color: #007bff;
-    transform: scale(1.1);
+    .order-search input {
+        width: 100%;
+    }
 }

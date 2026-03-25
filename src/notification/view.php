@@ -5,6 +5,7 @@ checkRole(['staff']);
 
 $conn = new mysqli("localhost", "root", "", "ordering_system");
 
+// Initial load: 12 latest orders
 $orders = $conn->query("
     SELECT orderID, customer_name, total_amount, status, order_date, payment_status
     FROM orders 
@@ -24,11 +25,11 @@ $orders = $conn->query("
     <link rel="stylesheet" href="<?= $base_url ?>assets/css/view.css">
     <link rel="stylesheet" href="<?= $base_url ?>assets/css/sidebar.css">
     <link rel="stylesheet" href="<?= $base_url ?>assets/icon/css/all.min.css">
-
 </head>
 
 <body>
     <?php include '../include/sidebar.php'; ?>
+
     <!-- ===== MAIN CONTENT ===== -->
     <div class="content">
 
@@ -39,11 +40,12 @@ $orders = $conn->query("
             </div>
         </div>
 
-        <div class="orders-container">
+        <!-- ===== ORDERS GRID ===== -->
+        <div class="orders-container" id="ordersContainer">
             <?php if ($orders && $orders->num_rows > 0): ?>
                 <?php while ($order = $orders->fetch_assoc()): ?>
                     <?php
-                    $formatted_date = date("M d, Y h:i A", strtotime($order['delivery_datetime']));
+                    $formatted_date = date("M d, Y h:i A", strtotime($order['order_date']));
                     $order_id = (int)$order['orderID'];
 
                     $items_result = $conn->query("
@@ -52,7 +54,6 @@ $orders = $conn->query("
                         WHERE orderID = $order_id
                     ");
                     ?>
-
                     <div class="order-card">
                         <div class="card-header">
                             <h3><?= htmlspecialchars($order['customer_name']); ?></h3>
@@ -108,9 +109,7 @@ $orders = $conn->query("
         </div>
     </div>
 
-    <!-- ===== JS ===== -->
-    <script src="<?= $base_url ?>assets/js/notif.js"></script>
-
+    <script src="<?= $base_url ?>assets/js/notif.js" defer></script>
 </body>
 
 </html>
