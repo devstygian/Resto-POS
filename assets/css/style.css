@@ -27,34 +27,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* ===== TOPBAR ===== */
-/* TOPBAR */
-.topbar {
-    position: sticky;
-    top: 0;
-    left: 250px;
-
-    right: 0;
-    z-index: 1000;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-
-    margin-top: -40px;
-    margin-bottom: 70px;
-
-padding-bottom: 18px;
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    
-    transition: all 0.3s ease;
-}
-i {
-    font-size: 25px;
-}
-
 /* ===== CARDS ===== */
 .cards {
     display: grid;
