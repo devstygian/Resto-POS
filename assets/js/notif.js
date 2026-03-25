@@ -1,74 +1,67 @@
-// ================= SMART PATH DETECTION =================
-(function () {
-    // Auto-detect base path
-    const scripts = document.querySelectorAll('script[src*="notif.js"]');
-    const scriptSrc = scripts[scripts.length - 1]?.src || '';
-    const baseUrl = scriptSrc.includes('assets/js/notif.js')
-        ? window.location.origin + '/assets/js/notif.js'
-        : '';
+(() => {
+    let lastCount = 0;
 
-    // Smart path based on current page
-    let notifUrl;
-    if (window.location.pathname.includes('/src/order/')) {
-        notifUrl = './get_notifications.php'; // view.php
-    } else if (window.location.pathname.includes('/src/')) {
-        notifUrl = '../order/get_notifications.php'; // Other src pages
-    } else {
-        notifUrl = 'src/order/get_notifications.php'; // index.php, root
-    }
+    const notifUrl = '/Nadine-system/src/notification/get_notifications.php';
+    const orderUrl = '/Nadine-system/src/notification/get_orders.php';
+    const dashboardUrl = '/Nadine-system/src/dashboard/get_dashboard.php'; // you will create this
 
-    window.notifUrl = notifUrl;
-    console.log('🔗 Using API:', window.notifUrl);
-
-    window.lastCount = window.lastCount || 0;
-
-    // ================= CORE FUNCTIONS (unchanged) =================
+    /* NOTIFICATIONS (GLOBAL)*/
     function loadNotifications() {
-        console.log('🔄 Polling →', window.notifUrl);
+        fetch(notifUrl + '?t=' + Date.now())
+            .then(res => res.json())
+            .then(data => {
+                const count = parseInt(data.count) || 0;
 
-        fetch(window.notifUrl + '?t=' + Date.now(), { cache: 'no-cache' })
-            .then(res => {
-                console.log('📡 Status:', res.status, res.statusText);
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                return res.text();
+                const badge = document.querySelector('.notif-badge');
+                const container = document.querySelector('.notif-container');
+
+                if (badge) {
+                    badge.style.display = count > 0 ? 'flex' : 'none';
+                    badge.textContent = count;
+                }
+
+                // Show popup only if NEW orders
+                if (count > lastCount && container) {
+                    createPopup(`New Order! (${count} pending)`, container);
+                }
+
+                lastCount = count;
             })
-            .then(raw => {
-                console.log('📄 Raw (first 50):', raw.substring(0, 50));
-                const data = JSON.parse(raw);
-                console.log('✅ Data:', data);
-                updateUI(data);
-            })
-            .catch(err => {
-                console.error('❌ Poll failed:', err);
-            });
+            .catch(err => console.error('Notif error:', err));
     }
 
-    function updateUI(data) {
-        const count = parseInt(data.count) || 0;
+    /*  VIEW.PHP (ORDERS GRID)*/
+    function loadOrders() {
+        const container = document.getElementById('ordersContainer');
+        if (!container) return; // only runs on view.php
 
-        // Multiple selector strategies
-        const badge = document.querySelector('.notif-badge, #notifCount, #dashBadge');
-        const container = document.querySelector('.notif-container, #notifContainer');
-
-        if (badge) {
-            badge.style.display = count > 0 ? 'flex' : 'none';
-            badge.textContent = count;
-        }
-
-        if (container && count > window.lastCount) {
-            const newOrders = count - window.lastCount;
-            for (let i = 0; i < newOrders; i++) {
-                setTimeout(() => createPopup(`New Order! (${count} pending)`, container), i * 200);
-            }
-        }
-
-        window.lastCount = count;
+        fetch(orderUrl + '?t=' + Date.now())
+            .then(res => res.text())
+            .then(html => {
+                container.innerHTML = html;
+            })
+            .catch(err => console.error('Orders error:', err));
     }
 
+    /* Dashboard
+    function loadDashboard() {
+        const dashboard = document.getElementById('dashboardContainer');
+        if (!dashboard) return; // only runs on dashboard
+
+        fetch(dashboardUrl + '?t=' + Date.now())
+            .then(res => res.text())
+            .then(html => {
+                dashboard.innerHTML = html;
+            })
+            .catch(err => console.error('Dashboard error:', err));
+    }
+
+    /* POPUP */
     function createPopup(message, container) {
         const notif = document.createElement('div');
         notif.className = 'notif-popup';
         notif.textContent = message;
+
         container.appendChild(notif);
 
         setTimeout(() => notif.classList.add('show'), 50);
@@ -78,17 +71,30 @@
         }, 4000);
     }
 
-    // ================= AUTO-START EVERYWHERE =================
-    ['DOMContentLoaded', 'load'].forEach(event => {
-        document.addEventListener(event, () => {
-            console.log(`🚀 ${event} - Starting notifications`);
-            setTimeout(loadNotifications, 1000); // 1s delay
+    /*AUTO REFRESH ENGINE*/
+    function startAutoRefresh() {
+        setInterval(() => {
+            loadNotifications(); // always runs
+            loadOrders();        // only if view.php
+            //loadDashboard();     // only if index.php
+        }, 5000);
 
-            // Poll every 3s
-            setInterval(loadNotifications, 3000);
+        // Refresh instantly when user returns
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                loadNotifications();
+                loadOrders();
+                //loadDashboard();
+            }
         });
+    }
+
+    /* INIT*/
+    document.addEventListener('DOMContentLoaded', () => {
+        loadNotifications();
+        loadOrders();
+        //loadDashboard();
+        startAutoRefresh();
     });
 
-    // Manual test
-    window.testNotifications = () => loadNotifications();
 })();
