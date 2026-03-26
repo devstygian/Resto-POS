@@ -1,115 +1,169 @@
-![PHP](https://img.shields.io/badge/PHP-7.4-blue) ![MySQL](https://img.shields.io/badge/MySQL-5.7-green) ![License](https://img.shields.io/badge/License-Educational-orange)
+![PHP](https://img.shields.io/badge/PHP-7.4+-blue)
+![MySQL](https://img.shields.io/badge/MySQL-5.7+-green)
+![License](https://img.shields.io/badge/License-Educational-orange)
+![Status](https://img.shields.io/badge/Status-Active-success)
 
-# Nadine POS System
+# 🍽️ Resto POS System
 
-**Capstone Project** – A restaurant order and menu management system built using **PHP**, **MySQL**, and **XAMPP**.  
-This system allows restaurant staff to manage menus, orders, dashboards, and user authentication efficiently.
+**Capstone Project** – A restaurant order and menu management system built using **PHP**, **MySQL**, and **XAMPP**.
+Designed to help restaurant staff efficiently manage menus, orders, and daily operations through a clean and responsive interface.
 
+---
 
-## System Preview
+## 📸 System Preview
 
-<div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;">
+<p align="center">
   <img src="assets/img/showcase/dashboard.png" width="30%">
   <img src="assets/img/showcase/menu.png" width="30%">
   <img src="assets/img/showcase/orderList.png" width="30%">
+</p>
+
+<p align="center">
   <img src="assets/img/showcase/menuManage.png" width="30%">
   <img src="assets/img/showcase/account.png" width="30%">
-</div>
+</p>
 
 ---
 
-## Features
+## ✨ Features
 
-- **Menu Management:** Add, edit, and categorize menu items with images.
-- **Order Management:** Track, update, and filter orders.
-- **Dashboard:** View sales statistics and order summaries.
-- **User Authentication:** Secure login system for staff.
-- **Security:** Passwords hashed with `password_hash()` and protection against SQL injection.
-- **Responsive UI:** Clean interface for easy navigation.
+* 🔧 **Menu Management**
+  Add, edit, delete, and categorize menu items with images.
+
+* 🧾 **Order Management**
+  Track, update, and filter customer orders in real-time.
+
+* 📊 **Dashboard Analytics**
+  View sales insights and order summaries.
+
+* 🔐 **User Authentication**
+  Secure login system with role-based access.
+
+* 🛡️ **Security**
+
+  * Password hashing using `password_hash()`
+  * Protection against SQL Injection
+
+* 📱 **Responsive UI**
+  Optimized for desktop and smaller screens.
 
 ---
 
-## Technologies Used
+## 🧰 Technologies Used
 
-- **Backend:** PHP, MySQL
-- **Frontend:** HTML, CSS, JavaScript
-- **Server:** XAMPP
-- **Libraries:** Font Awesome for icons
+* **Backend:** PHP (Procedural)
+* **Database:** MySQL
+* **Frontend:** HTML, CSS, JavaScript
+* **Server:** XAMPP
+* **Libraries:** Font Awesome
 
 ---
 
-## Development Progress
+## 📈 Development Progress
 
-- See the [TODO list](TODO.md) for planned features and improvements
-TODO.md
+* See the [TODO List](TODO.md) for upcoming features and improvements.
+
 ---
-## Contribution
 
-If you want to contribute:
+## 🤝 Contribution
 
-1. Create a new branch:
+We welcome contributions! Please follow the proper workflow:
+
+1. **Fork the repository**
+
+2. **Create a new branch**
+
 ```bash
-git checkout -b (branch name/yourname)
+git checkout -b feature/your-feature-name
 ```
-or Switch to Feature branch 
-> Don't work on main branch
-```bash
-git switch feature
-```
-2. Make your changes and commit:
+
+3. **Make your changes and commit**
+
 ```bash
 git add .
-git commit -m "Describe your feature"
+git commit -m "feat: add new feature"
 ```
-3. Push the branch:
+
+4. **Push your branch**
+
 ```bash
-git push -u origin feature-branch
+git push origin feature/your-feature-name
 ```
-4. Open a Pull Request on GitHub.
+
+5. **Open a Pull Request**
+
+📌 Please read:
+
+* `CONTRIBUTING.md`
+* `CODE_OF_CONDUCT.md`
+
 ---
-## Installation
+
+## ⚙️ Installation
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/Nadine-system.git
+git clone https://github.com/devstygian/Resto-POS.git
 ```
-2. Move the project into the XAMPP htdocs folder:
+
+2. Move to XAMPP directory:
+
 ```bash
-C:\xampp\htdocs\Nadine-system
+C:\xampp\htdocs\Resto-POS
 ```
-3. Start Apache and MySQL in XAMPP.
 
-4. Import the database schema (database/schema.sql) into phpMyAdmin.
+3. Start **Apache** and **MySQL** in XAMPP
 
-5. Open the project in your browser:
+4. Import database:
+
+* Open **phpMyAdmin**
+* Import: `database/schema.sql`
+
+5. Run the system:
+
 ```bash
-http://localhost/Nadine-system
+http://localhost/Resto-POS
 ```
 
 ---
-## Project Documentation
-This repository includes a detailed internal developer and architecture document:
-- `DOCUMENTATION.md` (main source for feature explanation, module breakdown, endpoints, and security notes)
 
-Use this file to onboard team members quickly and avoid repeating code walkthroughs.
+## 📚 Project Documentation
+
+This repository includes internal documentation:
+
+* `DOCUMENTATION.md` → Architecture, modules, endpoints, and system logic
+
+Use this to quickly understand the system structure.
 
 ---
-### Commit Format
+
+## 🧾 Commit Convention
+
 ```bash
-
-| Type       | When to use it                   |
-| ---------- | -------------------------------- |
-| `feat`     | New feature                      |
-| `fix`      | Bug fix                          |
-| `style`    | UI / design / CSS                |
-| `refactor` | Improve code (no new feature)    |
-| `chore`    | Cleanup, comments, minor changes |
-| `docs`     | Documentation                    |
-| `test`     | Testing                          |
-
-
+feat:     new feature
+fix:      bug fix
+style:    UI / CSS changes
+refactor: code improvement (no feature)
+chore:    cleanup / minor changes
+docs:     documentation
+test:     testing
 ```
-## Author
-**Stygian**  
-Contact: [hackstygian@gmail.com](mailto:hackstygian@gmail.com)
+
+---
+
+## 👨‍💻 Author
+
+**Dr. Stygian**
+📧 [hackstygian@gmail.com](mailto:hackstygian@gmail.com)
+
+---
+
+## 📌 Notes
+
+* This project is developed for **educational purposes**
+* Not intended for production use without further improvements (security, scaling, validation)
+
+---
+
+⭐ If you find this project useful, feel free to star the repository!
