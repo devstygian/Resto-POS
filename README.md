@@ -3,14 +3,14 @@
 ![License](https://img.shields.io/badge/License-Educational-orange)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
-# 🍽️ Resto POS System
+# Resto POS System
 
 **Capstone Project** – A restaurant order and menu management system built using **PHP**, **MySQL**, and **XAMPP**.
 Designed to help restaurant staff efficiently manage menus, orders, and daily operations through a clean and responsive interface.
 
 ---
 
-## 📸 System Preview
+## System Preview
 
 <p align="center">
   <img src="assets/img/showcase/dashboard.png" width="30%">
@@ -25,49 +25,49 @@ Designed to help restaurant staff efficiently manage menus, orders, and daily op
 
 ---
 
-## ✨ Features
+## Features
 
-* 🔧 **Menu Management**
+  **Menu Management**
   Add, edit, delete, and categorize menu items with images.
 
-* 🧾 **Order Management**
+  **Order Management**
   Track, update, and filter customer orders in real-time.
 
-* 📊 **Dashboard Analytics**
+  **Dashboard Analytics**
   View sales insights and order summaries.
 
-* 🔐 **User Authentication**
+  **User Authentication**
   Secure login system with role-based access.
 
-* 🛡️ **Security**
+  **Security**
 
   * Password hashing using `password_hash()`
   * Protection against SQL Injection
 
-* 📱 **Responsive UI**
+  **Responsive UI**
   Optimized for desktop and smaller screens.
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 | **Category**             | **Technology**                |
 |--------------------------|-------------------------------|
-| 🖥️ **Frontend**          | HTML, CSS, JavaScript         |
-| 🔙 **Backend**           |  PHP (Procedural)             |
-| 🗄️ **Database**          |  MySQL                        |
-| 🔐 **Server**            | XAMPP                         |
-| 📊 **Libraries**         | Font Awesome                  |
+|  **Frontend**          | HTML, CSS, JavaScript         |
+|  **Backend**           |  PHP (Procedural)             |
+|  **Database**          |  MySQL                        |
+|  **Server**            | XAMPP                         |
+|   **Libraries**         | Font Awesome                  |
 
 ---
 
-## 📈 Development Progress
+## Development Progress
 
 * See the [TODO List](TODO.md) for upcoming features and improvements.
 
 ---
 
-## 🤝 Contribution
+## Contribution
 
 We welcome contributions! Please follow the proper workflow:
 
@@ -102,7 +102,7 @@ git push origin feature/your-feature-name
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 1. Clone the repository:
 
@@ -131,7 +131,7 @@ http://localhost/Resto-POS
 
 ---
 
-## 📚 Project Documentation
+## Project Documentation
 
 This repository includes internal documentation:
 
@@ -141,7 +141,7 @@ Use this to quickly understand the system structure.
 
 ---
 
-## 🧾 Commit Convention
+## Commit Convention
 
 ```bash
 feat:     new feature
@@ -155,7 +155,7 @@ test:     testing
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **DevStygian**
 📧 [hackstygian@gmail.com](mailto:hackstygian@gmail.com)
