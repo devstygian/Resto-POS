@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'cremona', serif;
+    background: #cbd5c0;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== MAIN CONTENT ===== */
+.content {
+    margin-left: 220px;
+    padding: 30px 25px;
+    flex: 1;
+    max-width: 100%;
+}
+
+/* ===== HEADER ===== */
+.content h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.content p {
+    margin-bottom: 25px;
+    color: #4b5563;
+    font-size: 14px;
+}
+
+/* ===== Orders Table Wrapper ===== */
+.orders-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+}
+
+/* ===== Orders Table ===== */
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.orders-table th,
+.orders-table td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.orders-table th {
+    background: #ccf7af9f;
+    color: #fff;
+    color: #121213;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.orders-table tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+.orders-table tr:hover {
+    background: #e0e7ff;
+    cursor: pointer;
+}
+
+/* Responsive table for mobile */
+@media(max-width:768px) {
+
+    .orders-table,
+    .orders-table thead,
+    .orders-table tbody,
+    .orders-table th,
+    .orders-table td,
+    .orders-table tr {
+        display: block;
+    }
+
+    .orders-table thead tr {
+        display: none;
+    }
+
+    .orders-table td {
+        position: relative;
+        padding-left: 50%;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .orders-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        top: 12px;
+        font-weight: 600;
+        color: #2563eb;
+    }
+}
+
+/* ===== Pagination ===== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.page-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #2e7d32;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.page-btn:hover {
+    background: #2e7d32a8;
+}
+
+.page-btn.disabled {
+    background: #2e7d323d;
+    cursor: not-allowed;
+}
+
+.page-info {
+    font-weight: 500;
+    color: #374151;
+}
