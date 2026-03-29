@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" id="password" name="password" placeholder="Password" required>
                 <span id="togglePassword"
                     style="position:absolute; right:10px; top:35%; transform:translateY(-50%); cursor:pointer;">
-                    <i class="fas fa-eye"></i>
+                    
                 </span>
             </div>
 
