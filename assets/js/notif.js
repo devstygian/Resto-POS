@@ -1,3 +1,31 @@
+/* ERROR MODAL LOGIC */
+const ErrorHandler = {
+    bootstrapModal: null,
+
+    init() {
+        const modalElem = document.getElementById('error-modal');
+        if (modalElem) {
+            if (!this.bootstrapModal) {
+                this.bootstrapModal = new bootstrap.Modal(modalElem);
+            }
+            this.titleElem = document.getElementById('modal-title');
+            this.messageElem = document.getElementById('modal-message');
+            return true;
+        }
+        return false;
+    },
+
+    show(message, title = "Something Went Wrong") {
+        if (this.init()) {
+            this.titleElem.innerText = title;
+            this.messageElem.innerText = message;
+            this.bootstrapModal.show();
+        } else {
+            alert(`${title}: ${message}`);
+        }
+        console.error(`[System Error] ${title}: ${message}`);
+    }
+};
 (() => {
     let lastCount = 0;
 
@@ -8,7 +36,11 @@
     /* NOTIFICATIONS (GLOBAL)*/
     function loadNotifications() {
         fetch(notifUrl + '?t=' + Date.now())
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) throw new Error("Database unavailable" + res.status);
+                return res.json();
+            })
+
             .then(data => {
                 const count = parseInt(data.count) || 0;
 
@@ -27,7 +59,11 @@
 
                 lastCount = count;
             })
-            .catch(err => console.error('Notif error:', err));
+
+            .catch(err => {
+                ErrorHandler.show("Failed to check for new notifications.", "Notification Error");
+                console.error('Notif error:', err);
+            });
     }
 
     /*  VIEW.PHP (ORDERS GRID)*/
@@ -36,11 +72,18 @@
         if (!container) return; // only runs on view.php
 
         fetch(orderUrl + '?t=' + Date.now())
-            .then(res => res.text())
+            .then(res => {
+                if (!res.ok) throw new Error("HTTP error " + res.status);
+                return res.text();
+            })
+
             .then(html => {
                 container.innerHTML = html;
             })
-            .catch(err => console.error('Orders error:', err));
+            .catch(err => {
+                ErrorHandler.show("Failed to load order data from the server.", "Data Load Error");
+                console.error('Orders error:', err);
+            });
     }
 
     /* Dashboard
@@ -98,3 +141,6 @@
     });
 
 })();
+
+<!--Example integration-->
+// ErrorHandler.show("Frontend trigger test success!", "System Check");

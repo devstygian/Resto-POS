@@ -333,3 +333,43 @@ input {
         font-size: 12px;
     }
 }
+
+/*Modal*/
+#error-modal .modal-content {
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    font-family: 'cremona', serif;
+}
+
+#error-modal .modal-header {
+    background-color: #d9534f;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    padding: 1rem 1.5rem;
+}
+
+#error-modal .modal-title {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#error-modal .modal-body {
+    padding: 2rem 1.5rem;
+    font-size: 1.1rem;
+    color: #374151;
+}
+
+#error-modal .modal-footer {
+    border-top: 1px solid #eee;
+    padding: 1rem;
+}
+
+.modal-backdrop {
+    z-index: 1040 !important;
+}
+.modal {
+    z-index: 1050 !important;
+}
