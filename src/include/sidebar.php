@@ -15,8 +15,10 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidebar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="<?= $base_url ?>assets/css/sidebar.css">
-    <script src="<?= $base_url ?>assets/js/notif.js" defer></script>
+    <link rel="stylesheet" href="<?= $base_url ?>assets/css/style.css">
 </head>
 
 <body>
@@ -72,6 +74,28 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <i class="fas fa-sign-out-alt"></i> Logout
         </a>
     </div>
-</body>
 
+    <!--Modal-->
+    <div class="modal fade" id="error-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="modal-title">Something Went Wrong</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-message">An unexpected error occurred.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="modal-close-btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="<?= $base_url ?>assets/js/notif.js" defer></script>
+
+</body>
 </html>
