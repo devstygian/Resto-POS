@@ -5,8 +5,9 @@
 
 # Resto POS System
 
-**Capstone Project** – A restaurant order and menu management system built using **PHP**, **MySQL**, and **XAMPP**.
+***Capstone Project*** – A restaurant order and menu management system built using **PHP**, **MySQL**, and **XAMPP**.
 Designed to help restaurant staff efficiently manage menus, orders, and daily operations through a clean and responsive interface.
+
 ---
 
 ## System Preview
