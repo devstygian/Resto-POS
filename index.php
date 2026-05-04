@@ -7,7 +7,7 @@ checkRole(['admin', 'staff']);
 $total_amount = $conn->query("
     SELECT SUM(oi.price * oi.quantity) AS total
     FROM order_items oi
-    JOIN orders o ON oi.orderID = o.orderID 
+    JOIN orders o ON oi.orderID = o.orderID
     WHERE o.payment_status = 'Paid'
 ")->fetch_assoc()['total'] ?? 0;
 
@@ -57,9 +57,6 @@ $todayOrders = $conn->query("
 
 <head>
     <title>Dashboard</title>
-    <link rel="stylesheet" href="<?= $base_url ?>assets/css/style.css">
-    <link rel="stylesheet" href="<?= $base_url ?>assets/css/sidebar.css">
-    <link rel="stylesheet" href="<?= $base_url ?>assets/icon/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
@@ -128,7 +125,12 @@ $todayOrders = $conn->query("
         <?php include 'src/dashboard/recent_orders.php'; ?>
 
     </div>
-    <script src="<?= $base_url ?>assets/js/notif.js"></script>
+
+    <!--Example integration-->
+<!--    <button type="button" class="btn btn-warning"-->
+<!--            onclick="ErrorHandler.show('The manual test was successful!', 'Manual Test')">-->
+<!--        Test Error Modal-->
+<!--    </button>-->
 
 </body>
 

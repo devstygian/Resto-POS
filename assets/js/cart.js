@@ -20,17 +20,25 @@ function updatePrice(id, price) {
 
 // Add selected size to cart
 function addSelectedToCart(id, name, mediumPrice, largePrice) {
+    try {
+        let sizeInput = document.querySelector('input[name="size' + id + '"]:checked');
 
-    let size = document.querySelector('input[name="size' + id + '"]:checked').value;
+        if (!sizeInput) {
+            ErrorHandler.show("Please select a size before adding to cart.", "Selection Required");
+            return;
+        }
 
-    let price = size === "medium" ? mediumPrice : largePrice;
+        let size = sizeInput.value;
+        let price = size === "medium" ? mediumPrice : largePrice;
+        let itemName = name + " (" + size + ")";
 
-    let itemName = name + " (" + size + ")";
+        // Make unique ID for size
+        let uniqueId = id + "_" + size;
 
-    // Make unique ID for size
-    let uniqueId = id + "_" + size;
-
-    addToCart(uniqueId, itemName, price);
+        addToCart(uniqueId, itemName, price);
+    } catch (err) {
+        ErrorHandler.show("An error occurred while adding the item to the cart.", "System Error");
+    }
 }
 
 // Update cart display
@@ -135,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function checkout() {
 
     if (cart.length === 0) {
-        alert("Cart is empty!");
+        ErrorHandler.show("Your cart is empty! Please add items before placing an order.", "Empty Cart");
         return;
     }
 
@@ -162,7 +170,10 @@ function checkout() {
         })
     })
 
-        .then(res => res.text())
+        .then(res => {
+            if (!res.ok) throw new Error("Server error (HTTP " + res.status + ")");
+            return res.text();
+        })
 
         .then(response => {
 
@@ -179,7 +190,11 @@ function checkout() {
 
         .catch(err => {
 
-            alert("Error: " + err);
+            ErrorHandler.show(
+                "Could not send the order to the server. Please check your connection or try again later.",
+                "Order Error"
+            );
+            console.error("Checkout Error:", err);
 
         });
 }
@@ -196,9 +211,26 @@ function updateStatus(orderId, status) {
         body: JSON.stringify({ id: orderId, status: status })
 
     })
-
-        .then(res => res.text())
-
-        .then(msg => alert(msg));
-
+        .then(res => {
+            if (!res.ok) throw new Error("Failed to connect to server.");
+            return res.text();
+        })
+        .then(msg => {
+            alert("Status Updated: " + msg);
+        })
+        .catch(err => {
+            ErrorHandler.show(
+                "Failed to update order status. Please try again.",
+                "Update Error"
+            );
+            console.error("Update Status Error:", err);
+        });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const discountInput = document.getElementById("discountPercent");
+    if (discountInput) {
+        discountInput.addEventListener("input", updateCart);
+    }
+    updateCart();
+});
