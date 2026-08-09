@@ -11,7 +11,7 @@ if (session_status() === PHP_SESSION_NONE) {
 $conn = new mysqli("localhost", "root", "", "ordering_system");
 
 // Base URL for the project
-$base_url = "http://localhost/Nadine-system/";
+$base_url = "http://localhost/Resto-POS/";
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

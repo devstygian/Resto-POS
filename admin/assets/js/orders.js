@@ -1,5 +1,5 @@
 // BASE_URL points to your 'order' folder
-const BASE_URL = "http://localhost/Nadine-system/src/order/";
+const BASE_URL = "http://localhost/Resto-POS/src/order/";
 
 // View Items button
 function viewItems(orderId) {
