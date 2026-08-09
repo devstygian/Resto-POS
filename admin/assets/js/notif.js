@@ -1,9 +1,9 @@
 (() => {
     let lastCount = 0;
 
-    const notifUrl = '/Nadine-system/admin/src/notification/get_notifications.php';
-    const orderUrl = '/Nadine-system/admin/src/notification/get_orders.php';
-    const dashboardUrl = '/Nadine-system/admin/src/dashboard/get_dashboard.php';
+    const notifUrl = '/Resto-POS/admin/src/notification/get_notifications.php';
+    const orderUrl = '/Resto-POS/admin/src/notification/get_orders.php';
+    const dashboardUrl = '/Resto-POS/admin/src/dashboard/get_dashboard.php';
 
     /* NOTIFICATIONS (GLOBAL)*/
     function loadNotifications() {
