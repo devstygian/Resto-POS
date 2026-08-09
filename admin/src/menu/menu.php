@@ -131,7 +131,7 @@ checkRole(['admin']);
         <button class="back-btn" onclick="closeCart()">Back</button>
     </div>
 
-    <script src="../../admin/assets/js/cart.js"></script>
+    <script src="../assets/js/cart.js"></script>
 
     <script>
         // AJAX search function
