@@ -16,28 +16,28 @@ Designed to help restaurant staff efficiently manage menus, orders, and daily op
 ### Admin Panel
 
 <p align="center">
-  <img src="assets/img/showcase/dashboard.png" width="30%">
-  <img src="assets/img/showcase/Dashboard_0.5.png" width="30%">
-  <img src="assets/img/showcase/menu.png" width="30%">
+  <img src="admin/assets/img/showcase/Dashboard.png" width="30%">
+  <img src="admin/assets/img/showcase/Dashboard_0.5.png" width="30%">
+  <img src="admin/assets/img/showcase/Menu.png" width="30%">
 </p>
 
 <p align="center">
-  <img src="assets/img/showcase/Order_list.png" width="30%">
-  <img src="assets/img/showcase/Custom_Menu.png" width="30%">
-  <img src="assets/img/showcase/account.png" width="30%">
+  <img src="admin/assets/img/showcase/Order_list.png" width="30%">
+  <img src="admin/assets/img/showcase/Custom_Menu.png" width="30%">
+  <img src="admin/assets/img/showcase/Account.png" width="30%">
 </p>
 
 <p align="center">
-  <img src="assets/img/showcase/Customer_list.png" width="30%">
-  <img src="assets/img/showcase/Report.png" width="30%">
+  <img src="admin/assets/img/showcase/Customer_list.png" width="30%">
+  <img src="admin/assets/img/showcase/Report.png" width="30%">
 </p>
 
 ### Staff Panel
 
 <p align="center">
-  <img src="assets/img/showcase/staff_dash.png" width="30%">
-  <img src="assets/img/showcase/staff_dash_0.5.png" width="30%">
-  <img src="assets/img/showcase/View_Orders.png" width="30%">
+  <img src="admin/assets/img/showcase/staff_dash.png" width="30%">
+  <img src="admin/assets/img/showcase/staff_dash_0.5.png" width="30%">
+  <img src="admin/assets/img/showcase/View_Orders.png" width="30%">
 </p>
 
 ---
