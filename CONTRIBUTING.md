@@ -1,6 +1,6 @@
 # Contributing to Resto POS System
 
-Thank you for your interest in contributing to the **Resto POS System**!
+Thank you for your interest in contributing to the **Resto POS System**! 
 This guide will help you understand how to contribute effectively and keep the project clean and maintainable.
 
 ---
