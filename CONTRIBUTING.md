@@ -1,11 +1,11 @@
 # Contributing to Resto POS System
 
-Thank you for your interest in contributing to the **Resto POS System**! 🚀
+Thank you for your interest in contributing to the **Resto POS System**! 
 This guide will help you understand how to contribute effectively and keep the project clean and maintainable.
 
 ---
 
-## 📌 Getting Started
+## Getting Started
 
 ### 1. Fork the Repository
 
@@ -37,7 +37,7 @@ Branch naming conventions:
 
 ## 🛠 Development Guidelines
 
-### 🔹 Code Structure
+### Code Structure
 
 * Keep files organized (separate PHP, CSS, JS properly)
 * Follow existing project structure (`src/`, `config/`, etc.)
@@ -45,7 +45,7 @@ Branch naming conventions:
 
 ---
 
-### 🔹 Coding Standards
+### Coding Standards
 
 * Use clear and meaningful variable names
 * Keep code readable and consistent
@@ -54,7 +54,7 @@ Branch naming conventions:
 
 ---
 
-### 🔹 UI/UX Changes
+### UI/UX Changes
 
 * Maintain responsiveness (mobile-friendly)
 * Keep design consistent with existing UI
@@ -62,7 +62,7 @@ Branch naming conventions:
 
 ---
 
-### 🔹 Database Changes
+### Database Changes
 
 * Clearly document any changes to database structure
 * Avoid breaking existing queries
@@ -70,7 +70,7 @@ Branch naming conventions:
 
 ---
 
-## ✅ Before Submitting
+## Before Submitting
 
 Make sure you:
 
@@ -82,7 +82,7 @@ Make sure you:
 
 ---
 
-## 📥 Submitting a Pull Request
+## Submitting a Pull Request
 
 1. Push your branch:
 
@@ -100,7 +100,7 @@ git push origin feature/your-feature-name
 
 ---
 
-## 🐛 Reporting Issues
+## Reporting Issues
 
 When creating an issue, include:
 
@@ -126,7 +126,7 @@ Notification count should increase
 
 ---
 
-## 💡 Feature Requests
+## Feature Requests
 
 For new ideas:
 
@@ -136,7 +136,7 @@ For new ideas:
 
 ---
 
-## 🔐 Security Guidelines
+## Security Guidelines
 
 If you find a security issue:
 
@@ -145,7 +145,7 @@ If you find a security issue:
 
 ---
 
-## ⚖️ Contribution Rules
+## Contribution Rules
 
 * Keep commits clean and meaningful
 * Do not submit unrelated changes in one PR
@@ -154,7 +154,7 @@ If you find a security issue:
 
 ---
 
-## 📌 Maintainer Notes
+## Maintainer Notes
 
 All contributions are reviewed before merging.
 The maintainer may request changes before approval.
