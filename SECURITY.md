@@ -1,4 +1,4 @@
-# 🔐 Security Policy
+# Security Policy
 
 ## Supported Versions
 
@@ -7,17 +7,17 @@ Security updates are applied to the **latest version only**.
 
 ---
 
-## 🚨 Reporting a Vulnerability
+## Reporting a Vulnerability
 
 If you discover a security vulnerability, please **do not open a public GitHub issue**.
 
 Instead, report it privately:
 
-📧 Email: [hackstygian@gmail.com](mailto:hackstygian@gmail.com)
+Email: [hackstygian@gmail.com](mailto:hackstygian@gmail.com)
 
 ---
 
-## 📋 What to Include
+## What to Include
 
 To help resolve the issue faster, please include:
 
@@ -28,25 +28,25 @@ To help resolve the issue faster, please include:
 
 ---
 
-## ⏱ Response Time
+## Response Time
 
 * Initial response: within **24–48 hours**
 * Fix timeline depends on severity and complexity
 
 ---
 
-## 🔒 Responsible Disclosure
+## Responsible Disclosure
 
 Please allow time for the issue to be fixed before publicly sharing it.
 
 ---
 
-## 🙌 Acknowledgment
+## Acknowledgment
 
 Contributors who responsibly report vulnerabilities may be credited (optional).
 
 ---
 
-## ⚠️ Scope
+## Scope
 
 This policy applies only to the **Resto POS System** repository.

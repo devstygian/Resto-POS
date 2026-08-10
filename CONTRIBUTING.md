@@ -35,7 +35,7 @@ Branch naming conventions:
 
 ---
 
-## 🛠 Development Guidelines
+## Development Guidelines
 
 ### Code Structure
 
@@ -161,7 +161,7 @@ The maintainer may request changes before approval.
 
 ---
 
-## 🙌 Thank You
+## Thank You
 
 Your contributions help improve this system and make it more reliable and professional.
 
