@@ -84,30 +84,67 @@ Designed to help restaurant staff efficiently manage menus, orders, and daily op
 
 ---
 
-## Development Timeline
+# Development Timeline
 
-#### Phase 1 – Planning
-- Defined system scope as a Restaurant Management System
-- Selected technology stack: PHP, MySQL, XAMPP
-- Designed initial database structure and UI concept
+### Phase 1 – Planning & System Definition
 
-#### Phase 2 – Core System Development
-- Built authentication system (login/logout with roles)
-- Developed admin and staff dashboard
-- Implemented menu and order management modules
+* Initially proposed a **Barangay Management System (Saklaw)** as a potential capstone project.
+* Re-evaluated the project scope due to data-gathering and real-world requirements.
+* Shifted the project direction toward a **Restaurant Management & POS System**.
+* Defined the core system scope, user roles, restaurant workflows, and initial feature requirements.
+* Selected the primary technology stack: **PHP, MySQL, HTML, CSS, JavaScript, Bootstrap, and XAMPP**.
+* Designed the initial database structure and system interface.
 
-#### Phase 3 – Database Integration
-- Connected system to MySQL database
-- Implemented CRUD operations for menu, orders, and users
+### Phase 2 – Core POS & Management System
 
-#### Phase 4 – UI & Feature Improvements
-- Improved dashboard layout and usability
-- Added reporting and order tracking features
-- Enhanced responsiveness and UI consistency
+* Developed the authentication system with login, logout, and **role-based access control**.
+* Implemented the **admin/staff dashboard**.
+* Developed **menu management**, including menu creation, editing, listing, pricing, and availability.
+* Implemented **stock/inventory management** for monitoring available menu items.
+* Developed the **POS and order management system**.
+* Established order and food-status workflows such as **Pending, Preparing, Ready, Completed, and Cancelled**.
 
-#### Phase 5 – Expansion Plan
-- Planned integration of online ordering system (web-based landing page)
-- Future goal: unify POS system with customer-facing ordering platform
+### Phase 3 – Database & Business Logic Integration
+
+* Connected the application to the **MySQL database**.
+* Implemented CRUD operations for system-managed data.
+* Integrated database relationships between users, roles, menus, orders, order items, payments, and inventory.
+* Implemented order processing and status management.
+* Added business logic for pricing, order totals, stock availability, and sales records.
+* Developed dashboard metrics and monthly sales/income reporting.
+
+### Phase 4 – Customer-Facing E-Commerce Expansion
+
+* Expanded the system beyond a traditional POS by developing a **customer-facing web ordering platform**.
+* Created a public **landing page** for the restaurant.
+* Implemented customer menu browsing and online ordering workflows.
+* Added cart and checkout functionality.
+* Added customer order history and **status-based order tracking**.
+* Designed the system so that online orders and in-store POS transactions can operate within the same platform.
+
+### Phase 5 – Authentication & Payment Expansion
+
+* Planned and began integration of **Google Authentication** for customer login.
+* Planned integration of **electronic payment processing**, including GCash through a suitable payment gateway/API.
+* Designed the payment workflow to support payment verification and transaction records.
+* Planned additional notification and order-status updates for customers.
+
+### Phase 6 – Platform Integration & Future Development
+
+* Continue integrating the customer-facing ordering system with the existing POS and management modules.
+* Establish a unified workflow between **online ordering, POS transactions, inventory, payments, and reporting**.
+* Improve order tracking through automatic status updates and estimated preparation times rather than requiring live GPS tracking.
+* Expand reporting and analytics for restaurant performance, sales, inventory, and customer activity.
+* Further improve security, role permissions, validation, and system reliability.
+* Future direction: evolve Resto-POS from a traditional POS into a **Restaurant Management & E-Commerce Platform** that supports multiple sales channels through one centralized system.
+
+### Target System Direction
+
+The long-term development of Resto-POS is centered around a unified platform:
+
+**Customer Ordering → Authentication → Cart → Checkout → Payment → Order Processing → Inventory → POS → Reporting**
+
+This architecture allows the system to function not only as a point-of-sale solution, but also as a **customer-facing restaurant e-commerce platform and centralized restaurant management system**.
 
 ---
 
