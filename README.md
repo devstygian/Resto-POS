@@ -88,7 +88,7 @@ Designed to help restaurant staff efficiently manage menus, orders, and daily op
 
 ### Phase 1 – Planning & System Definition
 
-* Initially proposed a **Barangay Management System (Saklaw)** as a potential capstone project.
+* Initially proposed a **[Barangay Management System (Saklaw)](https://github.com/devstygian/Saklaw)** as a potential capstone project.
 * Re-evaluated the project scope due to data-gathering and real-world requirements.
 * Shifted the project direction toward a **Restaurant Management & POS System**.
 * Defined the core system scope, user roles, restaurant workflows, and initial feature requirements.
