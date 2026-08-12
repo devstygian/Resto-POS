@@ -1,46 +1,116 @@
-# System Functions Overview
+# System Functions
 
 ## 1. User Roles
-The system supports different user roles with specific permissions.
+
+The system provides role-based access with different permissions for each user type.
 
 ### Admin
-- Manage user accounts (create, update, delete)  
-- Manage menu items (add, update, delete)  
-- View all orders  
-- Access reports and dashboard  
+
+* Manage user accounts
+* Manage menu items
+* View and manage orders
+* Access dashboard and reports
 
 ### Staff
-- Create and manage customer orders  
-- View orders list  
-- Update payment and food process status  
 
-## 2. Authentication Module
-This module handles user account management and access control.
-- Create a new user account  
-- Update existing account details  
-- Delete user accounts  
+* Create and manage customer orders
+* View order information
+* Update payment status
+* Update food preparation status
 
-## 3. Menu and Ordering Module
-This module allows staff to manage customer orders through the menu interface.
-- Select and place orders from the menu  
-- Add items to the cart and input required details  
-- Modify cart items (remove items or adjust quantity)  
+---
 
-## 4. Orders Management Module
-This module manages order processing and monitoring.
-- View list of all orders  
-- View detailed order information  
-- Update payment status and food preparation status  
-- Delete orders when necessary  
+## 2. Authentication
 
-## 5. Menu Management Module
-This module allows administrators to manage menu items.
-- Add new menu items  
-- Update existing menu details  
-- Delete menu items  
+Handles user authentication and account management.
 
-## 6. Reports Module
-This module provides sales and performance insights.
-- Display dashboard overview  
-- Generate monthly sales reports  
-- Generate weekly sales reports  
+* User registration
+* User login and logout
+* Account management
+* Session-based access control
+
+---
+
+## 3. Menu & Ordering
+
+Provides the interface for selecting menu items and creating customer orders.
+
+* Browse available menu items
+* Add items to the cart
+* Update item quantities
+* Remove items from the cart
+* Submit customer orders
+
+---
+
+## 4. Order Management
+
+Handles order processing and status tracking.
+
+* View order records
+* View order details
+* Update payment status
+* Update food preparation status
+* Manage order records
+
+---
+
+## 5. Menu Management
+
+Allows authorized users to maintain the restaurant menu.
+
+* Add menu items
+* Update menu information
+* Remove menu items
+* Manage item pricing and availability
+
+---
+
+## 6. Dashboard & Reports
+
+Provides an overview of restaurant operations and sales performance.
+
+* Display key performance metrics
+* View sales summaries
+* Generate weekly sales reports
+* Generate monthly sales reports
+
+---
+
+# Upcoming Features
+
+The following features are planned for future development as the system expands into a more complete restaurant management and e-commerce platform.
+
+## Customer / User Side
+
+A dedicated customer-facing interface for browsing the restaurant and placing orders.
+
+* Customer registration and login
+* Google authentication
+* Customer profile management
+* Browse menu and categories
+* View item details
+* Shopping cart
+* Online ordering
+* Order history
+* Order status tracking
+
+## Online Payment
+
+Integration with third-party payment services.
+
+* Online payment processing
+* Payment confirmation
+* Payment status synchronization
+* Transaction records
+
+## Customer Experience
+
+Additional features to improve the customer ordering experience.
+
+* Order notifications
+* Favorite menu items
+* Customer order history
+* Responsive customer interface
+
+> **Note:** Upcoming features are subject to change based on development progress, technical requirements, and project scope.
